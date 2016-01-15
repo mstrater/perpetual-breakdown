@@ -1,11 +1,22 @@
 (function() {
 	'use strict';
 
+	const AudioContext = window.AudioContext || window.webkitAudioContext;
+	const audioContext = new AudioContext();
+
+	const BPM = 180;
+	const barLength = 60 / BPM;
+
+	const initialLength = 1.0;
+	const audioPath = 'AudioFiles/';
+
+	let currentBeat = 0;
+	let isPlaying = false;
+
 	const randInt = function(low, high) {
 		return Math.floor(Math.random() * (high - low + 1)) + low;
 	};
-	const initialLength = 1.0;
-	const audioPath = "AudioFiles/"
+
 	const songDefinition = {
 		cymbalSnare: {
 			sounds: {
@@ -16,7 +27,7 @@
 				}
 			},
 			soundSelector: function(beatNumber) {
-				return "crash";
+				return 'crash';
 			}
 		},
 		hits: {
@@ -81,89 +92,78 @@
 				let rand = randInt(0, 10);
 				switch (rand) {
 					case 0:
-						return "downOne";
+						return 'downOne';
 						break;
 					case 1:
-						return "downThree";
+						return 'downThree';
 						break;
 					case 2:
-						return "four";
+						return 'four';
 						break;
 					case 3:
-						if (beatNumber%4 === 1) {
+						if (beatNumber % 4 === 1) {
 							return hitSelector(beatNumber);
 						} else {
-							return "upOne";
+							return 'upOne';
 						}
 						break;
 					case 4:
-						if (beatNumber%4 === 1) {
+						if (beatNumber % 4 === 1) {
 							return hitSelector(beatNumber);
 						} else {
-							return "upThree";
+							return 'upThree';
 						}
 						break;
 					case 5:
-						if (beatNumber%4 === 1) {
+						if (beatNumber % 4 === 1) {
 							return hitSelector(beatNumber);
 						} else {
-							return "upThreeDownThree";
+							return 'upThreeDownThree';
 						}
 						break;
 					case 6:
-						if (beatNumber%4 === 1) {
+						if (beatNumber % 4 === 1) {
 							return hitSelector(beatNumber);
 						} else {
-							return "upThreeFour";
+							return 'upThreeFour';
 						}
 						break;
 					case 7:
-						if (beatNumber%4 === 1) {
+						if (beatNumber % 4 === 1) {
 							return hitSelector(beatNumber);
 						} else {
-							return "upThreeUpOne";
+							return 'upThreeUpOne';
 						}
 						break;
 					case 8:
-						if (beatNumber%4 === 1) {
+						if (beatNumber % 4 === 1) {
 							return hitSelector(beatNumber);
 						} else {
-							return "highOne";
+							return 'highOne';
 						}
 						break;
 					case 9:
-						if (beatNumber%4 === 1) {
+						if (beatNumber % 4 === 1) {
 							return hitSelector(beatNumber);
 						} else {
-							return "highTwo";
+							return 'highTwo';
 						}
 						break;
 					case 10:
-						if (beatNumber%4 === 1) {
+						if (beatNumber % 4 === 1) {
 							return hitSelector(beatNumber);
 						} else {
-							return "squeal";
+							return 'squeal';
 						}
 						break;
 					default:
-						console.log("Error: default case in soundSelector")
+						console.log('Error: default case in soundSelector');
 						return null;
 				}
 			}
 		}
 	};
-
-	const AudioContext = window.AudioContext || window.webkitAudioContext;
-	const audioContext = new AudioContext();
-
-	const BPM = 180;
-	const barLength = 60 / BPM;
-
-	// This var is helpful for scheduling.
-	let songLength = initialLength;
-	let currentBeat = 0;
-	let soundDictionary = {};
-	let isPlaying = true;
+	const tracks = Object.keys(songDefinition);
 
 	const simpleErr = function(e) {
 		if (e.stack) {
@@ -181,7 +181,7 @@
 
 	const loadSound = function(soundObj) {
 		return new Promise(function(res, rej) {
-			var xhr = new XMLHttpRequest();
+			const xhr = new XMLHttpRequest();
 
 			xhr.open('GET', soundObj.url);
 			xhr.responseType = 'arraybuffer';
@@ -201,50 +201,62 @@
 
 	const play = function(sound, when) {
 		toPlayQueue.push({
-			audio: sound.audio,
-			when: when,
-			gainNode: sound.gainNode
+			sound: sound,
+			when: when
 		});
 	};
 
+	// This technique is based off of this:
+	// http://www.html5rocks.com/en/tutorials/audio/scheduling/
 	const scheduler = function(e) {
 		if (!isPlaying) {
 			return;
 		}
-		currentBeat++;
-		const scheduleAheadTime = 0.5;
+		currentBeat = Math.floor(audioContext.currentTime / barLength);
+		const scheduleAheadTime = 0.1;
 
-		let nextSound = toPlayQueue[0];
-		while (nextSound && nextSound.when < audioContext.currentTime + scheduleAheadTime) {
+		let queuedSoundObj = toPlayQueue[0];
+		while (queuedSoundObj && queuedSoundObj.when < audioContext.currentTime + scheduleAheadTime) {
+			// remove the sound Obj from the queue.
 			toPlayQueue.shift();
 
+			const nextSound = queuedSoundObj.sound;
+
 			const buffer = audioContext.createBufferSource();
+			// connect the sound to the gain node (which connects to the destination).
 			buffer.connect(nextSound.gainNode);
-			nextSound.gainNode.connect(audioContext.destination);
 
 			buffer.buffer = nextSound.audio;
-			buffer.start(nextSound.when);
+			buffer.start(queuedSoundObj.when);
 
-			nextSound = toPlayQueue[0];
+			queuedSoundObj = toPlayQueue[0];
 		}
 
-		//fix for pausing causing a backup of sounds to play
-		if (songLength < audioContext.currentTime) {
-			songLength = audioContext.currentTime + barLength;
-		}
-
-		Object.keys(songDefinition).forEach(function(trackName){
-			var track = songDefinition[trackName];
-			if (track.trackLength <= songLength) {
-				nextSound = soundDictionary[track.soundSelector(currentBeat)];
-				play(nextSound, track.trackLength);
-				track.trackLength += barLength * nextSound.bars;
+		tracks.forEach(function(trackName) {
+			const track = songDefinition[trackName];
+			if (audioContext.currentTime > track.nextSoundPlaysAt - scheduleAheadTime) {
+				// If we are in here, it means the track's last queued sound has been scheduled
+				// and we are ready to queue another one.
+				const nextSound = track.sounds[track.soundSelector(currentBeat)];
+				play(nextSound, track.nextSoundPlaysAt);
+				track.nextSoundPlaysAt += barLength * nextSound.bars;
 			}
 		});
-		songLength += barLength;
 	};
 
-	const start = function() {
+	const fixNextSoundPlaysAt = function() {
+		// nextSoundPlaysAt must always be at or ahead of the currentTime
+		// otherwise you get an explosion of sounds.
+		tracks.forEach(function(trackName) {
+			const track = songDefinition[trackName];
+			if (track.nextSoundPlaysAt < audioContext.currentTime) {
+				track.nextSoundPlaysAt = audioContext.currentTime + barLength;
+			}
+		});
+	};
+
+	let schedulerStarted = false;
+	const startScheduler = function() {
 		const tickRate = 25;
 		const workerSrc = `
 			const interval = ${tickRate};
@@ -256,32 +268,60 @@
 			setInterval(tick, interval);
 		`;
 
+		/*
+		We use a webworker to truly schedule in a different thread.
+		This keeps the audio playing correctly even when you are not
+		viewing the same tab (Chrome lowers the priority of the tab).
+		This is why we don't use setInterval.
+		*/
 		const worker = new Worker(makeWorkerSrc(workerSrc));
 
 		worker.addEventListener('message', scheduler);
-		//setInterval(scheduler, tickRate);
+
+		schedulerStarted = true;
 	};
+
+	const playPauseBtn = document.querySelector('#playPause');
+	playPauseBtn.innerText = 'Loading...';
+	playPauseBtn.disabled = true;
 
 	const loadAllSounds = function() {
 		let allSounds = [];
-		Object.keys(songDefinition).forEach(function(trackName) {
+		tracks.forEach(function(trackName) {
 			let track = songDefinition[trackName];
-			track.trackLength = initialLength;
+			track.nextSoundPlaysAt = initialLength;
 			Object.keys(track.sounds).forEach(function(soundName) {
 				let sound = track.sounds[soundName];
+				// set up gain nodes per sound so that sounds in the same track can
+				// play at different volumes and overlap.
 				sound.gainNode = audioContext.createGain();
 				sound.gainNode.gain.value = sound.volume;
-				allSounds.push(sound)
-				soundDictionary[soundName] = sound;
+				// connect the gain nodes to the destination.
+				sound.gainNode.connect(audioContext.destination);
+				allSounds.push(sound);
 			});
 		});
-		Promise.all(allSounds.map(loadSound)).then(start).catch(simpleErr);
+		Promise.all(allSounds.map(loadSound))
+		.then(function() {
+			playPauseBtn.disabled = false;
+			playPauseBtn.innerText = 'Play';
+		})
+		.catch(simpleErr);
 	};
 
 	loadAllSounds();
 
-	document.querySelector('#playPause').addEventListener('click', function() {
+	playPauseBtn.addEventListener('click', function() {
 		isPlaying = !isPlaying;
+		if (isPlaying) {
+			fixNextSoundPlaysAt();
+			playPauseBtn.innerText = 'Pause';
+		} else {
+			playPauseBtn.innerText = 'Play';
+		}
+		if (!schedulerStarted) {
+			startScheduler();
+		}
 	});
 
 })();
