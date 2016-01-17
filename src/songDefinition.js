@@ -12,10 +12,19 @@
 					url: audioPath + 'crash.wav',
 					bars: 4,
 					volume: 0.5
+				},
+				openHat: {
+					url: audioPath + 'open_hat.wav',
+					bars: 4,
+					volume: 0.5
 				}
 			},
 			soundSelector: function(beatNumber) {
-				return 'crash';
+				if (beatNumber%32 < 16) {
+					return 'crash';
+				} else {
+					return 'openHat';
+				}
 			}
 		},
 		hits: {
@@ -77,76 +86,39 @@
 				}
 			},
 			soundSelector: function hitSelector(beatNumber) {
-				let rand = util.randInt(0, 10);
-				switch (rand) {
-					case 0:
-						return 'downOne';
-						break;
-					case 1:
-						return 'downThree';
-						break;
-					case 2:
-						return 'four';
-						break;
-					case 3:
-						if (beatNumber % 4 === 1) {
-							return hitSelector(beatNumber);
+				let downHits = ['downOne', 'downThree', 'four'];
+				let upHits = ['upOne', 'upThree', 'upThreeDownThree', 'upThreeFour', 'upThreeUpOne'];
+				let allHits = downHits.concat(upHits);
+				let highs = ['highOne', 'highTwo'];
+
+				if (beatNumber%8 === 0) {
+					//always have a strong downbeat every 8
+					return util.randArrayEntry(downHits);
+				}
+
+				if (beatNumber%32 < 16) {
+					//no extras
+					return util.randArrayEntry(allHits);
+				} else {
+					//allows extras
+					function highSelector() {
+						let rand = Math.random();
+						if (rand < 0.4) {
+							return util.randArrayEntry(highs);
 						} else {
-							return 'upOne';
+							return util.randArrayEntry(allHits);
 						}
-						break;
-					case 4:
-						if (beatNumber % 4 === 1) {
-							return hitSelector(beatNumber);
-						} else {
-							return 'upThree';
-						}
-						break;
-					case 5:
-						if (beatNumber % 4 === 1) {
-							return hitSelector(beatNumber);
-						} else {
-							return 'upThreeDownThree';
-						}
-						break;
-					case 6:
-						if (beatNumber % 4 === 1) {
-							return hitSelector(beatNumber);
-						} else {
-							return 'upThreeFour';
-						}
-						break;
-					case 7:
-						if (beatNumber % 4 === 1) {
-							return hitSelector(beatNumber);
-						} else {
-							return 'upThreeUpOne';
-						}
-						break;
-					case 8:
-						if (beatNumber % 4 === 1) {
-							return hitSelector(beatNumber);
-						} else {
-							return 'highOne';
-						}
-						break;
-					case 9:
-						if (beatNumber % 4 === 1) {
-							return hitSelector(beatNumber);
-						} else {
-							return 'highTwo';
-						}
-						break;
-					case 10:
-						if (beatNumber % 4 === 1) {
-							return hitSelector(beatNumber);
-						} else {
+					}
+					if (beatNumber%4 === 2) {
+						let r = Math.random();
+						if (r < 0.5) {
 							return 'squeal';
+						} else {
+							return highSelector();
 						}
-						break;
-					default:
-						console.log('Error: default case in soundSelector');
-						return null;
+					} else {
+						return highSelector();
+					}
 				}
 			}
 		}

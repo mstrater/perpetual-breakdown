@@ -9,8 +9,14 @@
 		console.log(e);
 	}
 
+	// expects nonnegative ints with low <= high
 	function randInt(low, high) {
 		return Math.floor(Math.random() * (high - low + 1)) + low;
+	}
+
+	// expects array to be nonempty
+	function randArrayEntry(array) {
+		return array[randInt(0, array.length - 1)];
 	}
 
 	function makeWorkerSrc(src) {
@@ -22,6 +28,7 @@
 	window.app.util = {
 		simpleErr,
 		randInt,
+		randArrayEntry,
 		makeWorkerSrc
 	};
 })();
