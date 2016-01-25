@@ -13,6 +13,8 @@
 
 	let currentBeat = 0;
 	let isPlaying = false;
+	let lastPausedAt = 0;
+	let totalTimePaused = 0;
 
 	const songDefinition = window.app.songDefinition;
 	const tracks = Object.keys(songDefinition);
@@ -50,14 +52,12 @@
 		if (!isPlaying) {
 			return;
 		}
-		currentBeat = Math.floor(audioContext.currentTime / barLength);
+		currentBeat = Math.floor((audioContext.currentTime - totalTimePaused) / barLength);
 		const scheduleAheadTime = 0.1;
 
-		let queuedSoundObj = toPlayQueue[0];
+		// remove the sound Obj from the queue.
+		let queuedSoundObj = toPlayQueue.shift();
 		while (queuedSoundObj && queuedSoundObj.when < audioContext.currentTime + scheduleAheadTime) {
-			// remove the sound Obj from the queue.
-			toPlayQueue.shift();
-
 			const nextSound = queuedSoundObj.sound;
 
 			const buffer = audioContext.createBufferSource();
@@ -67,7 +67,7 @@
 			buffer.buffer = nextSound.audio;
 			buffer.start(queuedSoundObj.when);
 
-			queuedSoundObj = toPlayQueue[0];
+			queuedSoundObj = toPlayQueue.shift();
 		}
 
 		tracks.forEach(function(trackName) {
@@ -152,9 +152,11 @@
 	playPauseBtn.addEventListener('click', function() {
 		isPlaying = !isPlaying;
 		if (isPlaying) {
+			totalTimePaused += audioContext.currentTime - lastPausedAt;
 			fixNextSoundPlaysAt();
 			playPauseBtn.innerText = 'Pause';
 		} else {
+			lastPausedAt = audioContext.currentTime;
 			playPauseBtn.innerText = 'Play';
 		}
 		if (!schedulerStarted) {

@@ -20,7 +20,7 @@
 				}
 			},
 			soundSelector: function(beatNumber) {
-				if (beatNumber%32 < 16) {
+				if (beatNumber % 32 < 16) {
 					return 'crash';
 				} else {
 					return 'openHat';
@@ -86,31 +86,32 @@
 				}
 			},
 			soundSelector: function hitSelector(beatNumber) {
-				let downHits = ['downOne', 'downThree', 'four'];
-				let upHits = ['upOne', 'upThree', 'upThreeDownThree', 'upThreeFour', 'upThreeUpOne'];
-				let allHits = downHits.concat(upHits);
-				let highs = ['highOne', 'highTwo'];
+				const downHits = ['downOne', 'downThree', 'four'];
+				const upHits = ['upOne', 'upThree', 'upThreeDownThree', 'upThreeFour', 'upThreeUpOne'];
+				const allHits = downHits.concat(upHits);
+				const highs = ['highOne', 'highTwo'];
 
-				if (beatNumber%8 === 0) {
+				function highSelector() {
+					const rand = Math.random();
+					if (rand < 0.4) {
+						return util.randArrayEntry(highs);
+					} else {
+						return util.randArrayEntry(allHits);
+					}
+				}
+
+				if (beatNumber % 8 === 0) {
 					//always have a strong downbeat every 8
 					return util.randArrayEntry(downHits);
 				}
 
-				if (beatNumber%32 < 16) {
+				if (beatNumber % 32 < 16) {
 					//no extras
 					return util.randArrayEntry(allHits);
 				} else {
 					//allows extras
-					function highSelector() {
-						let rand = Math.random();
-						if (rand < 0.4) {
-							return util.randArrayEntry(highs);
-						} else {
-							return util.randArrayEntry(allHits);
-						}
-					}
-					if (beatNumber%4 === 2) {
-						let r = Math.random();
+					if (beatNumber % 4 === 2) {
+						const r = Math.random();
 						if (r < 0.5) {
 							return 'squeal';
 						} else {

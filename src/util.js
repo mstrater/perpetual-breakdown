@@ -9,13 +9,19 @@
 		console.log(e);
 	}
 
-	// expects nonnegative ints with low <= high
+	// returns a int between [low , high] inclusive.
 	function randInt(low, high) {
+		if (low > high) {
+			throw new Error('randInt: low must be <= high. : ' + low + ' , ' + high);
+		}
 		return Math.floor(Math.random() * (high - low + 1)) + low;
 	}
 
 	// expects array to be nonempty
 	function randArrayEntry(array) {
+		if (!array || !array.length) {
+			throw new Error('randArrayEntry: Must pass array that is not empty.');
+		}
 		return array[randInt(0, array.length - 1)];
 	}
 
