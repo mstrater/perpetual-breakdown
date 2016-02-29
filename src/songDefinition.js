@@ -17,10 +17,18 @@
 					url: audioPath + 'open_hat.wav',
 					bars: 4,
 					volume: 0.5
+				},
+				fill1: {
+					url: audioPath + 'fill_1.wav',
+					bars: 4,
+					volume: 0.5
 				}
 			},
 			soundSelector: function(beatNumber) {
-				if (beatNumber % 32 < 16) {
+				console.log(beatNumber);
+				if (beatNumber%32 === 28) {
+					return 'fill1';
+				} else if (beatNumber%64 < 32) {
 					return 'crash';
 				} else {
 					return 'openHat';
@@ -105,7 +113,7 @@
 					return util.randArrayEntry(downHits);
 				}
 
-				if (beatNumber % 32 < 16) {
+				if (beatNumber%64 < 32) {
 					//no extras
 					return util.randArrayEntry(allHits);
 				} else {
