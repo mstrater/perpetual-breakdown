@@ -18,20 +18,60 @@
 					bars: 4,
 					volume: 0.5
 				},
+				crashOpenHat: {
+					url: audioPath + 'crash_open_hat.wav',
+					bars: 4,
+					volume: 0.5
+				},
+				crashRide: {
+					url: audioPath + 'crash_ride.wav',
+					bars: 4,
+					volume: 0.5
+				},
 				fill1: {
 					url: audioPath + 'fill_1.wav',
+					bars: 4,
+					volume: 0.5
+				},
+				fill2: {
+					url: audioPath + 'fill_2.wav',
+					bars: 4,
+					volume: 0.5
+				},
+				fill3: {
+					url: audioPath + 'fill_3.wav',
+					bars: 4,
+					volume: 0.5
+				},
+				fill4: {
+					url: audioPath + 'fill_4.wav',
 					bars: 4,
 					volume: 0.5
 				}
 			},
 			soundSelector: function(beatNumber) {
-				console.log(beatNumber);
+				const fills = ['fill1', 'fill2', 'fill3', 'fill4'];
 				if (beatNumber%32 === 28) {
-					return 'fill1';
+					return util.randArrayEntry(fills);
 				} else if (beatNumber%64 < 32) {
-					return 'crash';
+					//crash section
+					if (beatNumber%8 === 4) {
+						const r = Math.random();
+						if (r < 0.3) {
+							return 'crashRide';
+						} else {
+							return 'crash';
+						}
+					} else {
+						return 'crash';
+					}
 				} else {
-					return 'openHat';
+					//open hat section
+					if (beatNumber%32 === 0) {
+						return 'crashOpenHat';
+					} else {
+						return 'openHat';
+					}
 				}
 			}
 		},
@@ -120,7 +160,7 @@
 					//allows extras
 					if (beatNumber % 4 === 2) {
 						const r = Math.random();
-						if (r < 0.5) {
+						if (r < 0.4) {
 							return 'squeal';
 						} else {
 							return highSelector();
