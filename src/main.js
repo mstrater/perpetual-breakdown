@@ -91,16 +91,15 @@
 
 	let schedulerStarted = false;
 	const startScheduler = function() {
-		const tickRate = 25;
-		const workerSrc = `
-			const interval = ${tickRate};
+		const workerFunc = function() {
+			const tickRate = 25;
 
 			const tick = function() {
 				postMessage('tick');
 			};
 
-			setInterval(tick, interval);
-		`;
+			setInterval(tick, tickRate);
+		};
 
 		/*
 		We use a webworker to truly schedule in a different thread.
@@ -108,7 +107,7 @@
 		viewing the same tab (Chrome lowers the priority of the tab).
 		This is why we don't use setInterval.
 		*/
-		const worker = new Worker(util.makeWorkerSrc(workerSrc));
+		const worker = new Worker(util.makeWorkerSrcFromFunc(workerFunc));
 
 		worker.addEventListener('message', scheduler);
 

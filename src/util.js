@@ -25,8 +25,8 @@
 		return array[randInt(0, array.length - 1)];
 	}
 
-	function makeWorkerSrc(src) {
-		src = '(function() {"use strict";' + src + '})()';
+	function makeWorkerSrcFromFunc(func) {
+		const src = '"use strict"; (' + func.toString() + ')();';
 		const blob = new Blob([src], {type: 'text/javascript'});
 		return window.URL.createObjectURL(blob);
 	}
@@ -35,6 +35,6 @@
 		simpleErr,
 		randInt,
 		randArrayEntry,
-		makeWorkerSrc
+		makeWorkerSrcFromFunc
 	};
 })();
