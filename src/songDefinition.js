@@ -51,11 +51,11 @@
 			},
 			soundSelector: function(beatNumber) {
 				const fills = ['fill1', 'fill2', 'fill3', 'fill4'];
-				if (beatNumber%32 === 28) {
+				if (beatNumber % 32 === 28) {
 					return util.randArrayEntry(fills);
-				} else if (beatNumber%64 < 32) {
+				} else if (beatNumber % 64 < 32) {
 					//crash section
-					if (beatNumber%8 === 4) {
+					if (beatNumber % 8 === 4) {
 						const r = Math.random();
 						if (r < 0.3) {
 							return 'crashRide';
@@ -67,7 +67,7 @@
 					}
 				} else {
 					//open hat section
-					if (beatNumber%32 === 0) {
+					if (beatNumber % 32 === 0) {
 						return 'crashOpenHat';
 					} else {
 						return 'openHat';
@@ -153,7 +153,7 @@
 					return util.randArrayEntry(downHits);
 				}
 
-				if (beatNumber%64 < 32) {
+				if (beatNumber % 64 < 32) {
 					//no extras
 					return util.randArrayEntry(allHits);
 				} else {
