@@ -9,9 +9,13 @@
 	const BPM = 180;
 	const barLength = 60 / BPM;
 
-	const initialLength = 1.0;
+	// The rate at which the samples are played back (this changes pitch).
+	const playbackRate = 1.0;
 
-	let currentBeat = 0;
+	// Number of seconds to wait before song starts playing after user clicks play.
+	// This should be no less than 0.1. Things start weirdly otherwise (not sure why).
+	const startPadding = 0.1;
+
 	let isPlaying = false;
 	let lastPausedAt = 0;
 	let totalTimePaused = 0;
@@ -37,58 +41,50 @@
 		});
 	};
 
-	const toPlayQueue = [];
-
-	const play = function(sound, when) {
-		toPlayQueue.push({
-			sound: sound,
-			when: when
-		});
-	};
-
-	// This technique is based off of this:
+	// This technique is inspired by this:
 	// http://www.html5rocks.com/en/tutorials/audio/scheduling/
 	const scheduler = function(e) {
 		if (!isPlaying) {
 			return;
 		}
-		currentBeat = Math.floor((audioContext.currentTime - totalTimePaused) / barLength);
-		const scheduleAheadTime = 0.1;
+		// max number of seconds a sound can be scheduled before it plays.
+		// This keeps things playing at the right time even with laggy js.
+		const scheduleAheadTime = 0.2;
 
-		// remove the sound Obj from the queue.
-		let queuedSoundObj = toPlayQueue.shift();
-		while (queuedSoundObj && queuedSoundObj.when < audioContext.currentTime + scheduleAheadTime) {
-			const nextSound = queuedSoundObj.sound;
+		/*
+		How this works:
+		First we have our "song time" which is the number of seconds the user has been hearing sound.
+		This does not include the time when the audio is paused or the time before the user clicks play.
+		Then there is the "audioContext time" which is the number of seconds since the audioContext was
+		made (when the page loads).
+		To convert a audio context time to a song time, you just subtract the seconds paused. Do the
+		inverse for song time to audio context time.
+		*/
 
-			const buffer = audioContext.createBufferSource();
-			// connect the sound to the gain node (which connects to the destination).
-			buffer.connect(nextSound.gainNode);
-
-			buffer.buffer = nextSound.audio;
-			buffer.start(queuedSoundObj.when);
-
-			queuedSoundObj = toPlayQueue.shift();
-		}
+		// convert audioContext time to song time.
+		const songTime = audioContext.currentTime - totalTimePaused;
 
 		tracks.forEach(function(trackName) {
 			const track = songDefinition[trackName];
-			if (audioContext.currentTime > track.nextSoundPlaysAt - scheduleAheadTime) {
-				// If we are in here, it means the track's last queued sound has been scheduled
-				// and we are ready to queue another one.
-				const nextSound = track.sounds[track.soundSelector(currentBeat)];
-				play(nextSound, track.nextSoundPlaysAt);
-				track.nextSoundPlaysAt += barLength * nextSound.bars;
-			}
-		});
-	};
+			// nextSoundPlaysAt is a "song time" variable.
+			const nextSoundPlaysAt = track.currentBarNumber * barLength + startPadding;
+			if (songTime > nextSoundPlaysAt - scheduleAheadTime) {
+				// we are close enough to the next sound playing, so schedule it.
+				const nextSound = track.sounds[track.soundSelector(track.currentBarNumber)];
 
-	const fixNextSoundPlaysAt = function() {
-		// nextSoundPlaysAt must always be at or ahead of the currentTime
-		// otherwise you get an explosion of sounds.
-		tracks.forEach(function(trackName) {
-			const track = songDefinition[trackName];
-			if (track.nextSoundPlaysAt < audioContext.currentTime) {
-				track.nextSoundPlaysAt = audioContext.currentTime + barLength;
+				const buffer = audioContext.createBufferSource();
+				// connect the sound to the gain node (which connects to the destination).
+				buffer.connect(nextSound.gainNode);
+				// Make the buffer point at the AudioBuffer.
+				buffer.buffer = nextSound.audio;
+
+				// this is a fun variable.
+				buffer.playbackRate.value = playbackRate;
+
+				// convert nextSoundPlaysAt to a "audioContext time" and perform the schedule.
+				buffer.start(nextSoundPlaysAt + totalTimePaused);
+
+				track.currentBarNumber += nextSound.bars;
 			}
 		});
 	};
@@ -120,14 +116,14 @@
 	};
 
 	const playPauseBtn = document.querySelector('#playPause');
-	playPauseBtn.innerText = 'Loading...';
+	playPauseBtn.textContent = 'Loading...';
 	playPauseBtn.disabled = true;
 
 	const loadAllSounds = function() {
 		let allSounds = [];
 		tracks.forEach(function(trackName) {
 			let track = songDefinition[trackName];
-			track.nextSoundPlaysAt = initialLength;
+			track.currentBarNumber = 0;
 			Object.keys(track.sounds).forEach(function(soundName) {
 				let sound = track.sounds[soundName];
 				// set up gain nodes per sound so that sounds in the same track can
@@ -142,7 +138,7 @@
 		Promise.all(allSounds.map(loadSound))
 		.then(function() {
 			playPauseBtn.disabled = false;
-			playPauseBtn.innerText = 'Play';
+			playPauseBtn.textContent = 'Play';
 		})
 		.catch(util.simpleErr);
 	};
@@ -153,11 +149,10 @@
 		isPlaying = !isPlaying;
 		if (isPlaying) {
 			totalTimePaused += audioContext.currentTime - lastPausedAt;
-			fixNextSoundPlaysAt();
-			playPauseBtn.innerText = 'Pause';
+			playPauseBtn.textContent = 'Pause';
 		} else {
 			lastPausedAt = audioContext.currentTime;
-			playPauseBtn.innerText = 'Play';
+			playPauseBtn.textContent = 'Play';
 		}
 		if (!schedulerStarted) {
 			startScheduler();
