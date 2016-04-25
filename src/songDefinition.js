@@ -97,8 +97,28 @@
 					bars: 1,
 					volume: 0.5
 				},
+				highOneUpOne: {
+					url: audioPath + 'full_high_one_up_one.wav',
+					bars: 1,
+					volume: 0.5
+				},
+				highTwoUpOne: {
+					url: audioPath + 'full_high_two_up_one.wav',
+					bars: 1,
+					volume: 0.5
+				},
 				upThree: {
 					url: audioPath + 'full_up_three.wav',
+					bars: 2,
+					volume: 0.5
+				},
+				highOneUpThree: {
+					url: audioPath + 'full_high_one_up_three.wav',
+					bars: 2,
+					volume: 0.5
+				},
+				highTwoUpThree: {
+					url: audioPath + 'full_high_two_up_three.wav',
 					bars: 2,
 					volume: 0.5
 				},
@@ -107,13 +127,43 @@
 					bars: 2,
 					volume: 0.5
 				},
+				highOneUpThreeDownThree: {
+					url: audioPath + 'full_high_one_up_three_down_three.wav',
+					bars: 2,
+					volume: 0.5
+				},
+				highTwoUpThreeDownThree: {
+					url: audioPath + 'full_high_two_up_three_down_three.wav',
+					bars: 2,
+					volume: 0.5
+				},
 				upThreeFour: {
 					url: audioPath + 'full_up_three_four.wav',
 					bars: 2,
 					volume: 0.5
 				},
+				highOneUpThreeFour: {
+					url: audioPath + 'full_high_one_up_three_four.wav',
+					bars: 2,
+					volume: 0.5
+				},
+				highTwoUpThreeFour: {
+					url: audioPath + 'full_high_two_up_three_four.wav',
+					bars: 2,
+					volume: 0.5
+				},
 				upThreeUpOne: {
 					url: audioPath + 'full_up_three_up_one.wav',
+					bars: 2,
+					volume: 0.5
+				},
+				highOneUpThreeUpOne: {
+					url: audioPath + 'full_high_one_up_three_up_one.wav',
+					bars: 2,
+					volume: 0.5
+				},
+				highTwoUpThreeUpOne: {
+					url: audioPath + 'full_high_two_up_three_up_one.wav',
 					bars: 2,
 					volume: 0.5
 				},
@@ -137,11 +187,11 @@
 				const downHits = ['downOne', 'downThree', 'four'];
 				const upHits = ['upOne', 'upThree', 'upThreeDownThree', 'upThreeFour', 'upThreeUpOne'];
 				const allHits = downHits.concat(upHits);
-				const highs = ['highOne', 'highTwo'];
+				const highs = ['highOne', 'highTwo', 'highOneUpOne', 'highTwoUpOne', 'highOneUpThree', 'highTwoUpThree', 'highOneUpThreeDownThree', 'highTwoUpThreeDownThree', 'highOneUpThreeFour', 'highTwoUpThreeFour', 'highOneUpThreeUpOne', 'highTwoUpThreeUpOne'];
 
 				function highSelector() {
 					const rand = Math.random();
-					if (rand < 0.4) {
+					if (rand < 0.5) {
 						return util.randArrayEntry(highs);
 					} else {
 						return util.randArrayEntry(allHits);
@@ -160,7 +210,7 @@
 					//allows extras
 					if (beatNumber % 4 === 2) {
 						const r = Math.random();
-						if (r < 0.4) {
+						if (r < 0.3) {
 							return 'squeal';
 						} else {
 							return highSelector();
