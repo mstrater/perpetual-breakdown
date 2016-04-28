@@ -6,22 +6,21 @@
 	const AudioContext = window.AudioContext || window.webkitAudioContext;
 	const audioContext = new AudioContext();
 
-	const BPM = 180;
-	const barLength = 60 / BPM;
-
-	// The rate at which the samples are played back (this changes pitch).
-	const playbackRate = 1.0;
+	const songDefinition = window.app.songDefinition;
 
 	// Number of seconds to wait before song starts playing after user clicks play.
 	// This should be no less than 0.1. Things start weirdly otherwise (not sure why).
 	const startPadding = 0.1;
 
+	const barLength = 60 / songDefinition.bpm;
+
 	let isPlaying = false;
 	let lastPausedAt = 0;
 	let totalTimePaused = 0;
 
-	const songDefinition = window.app.songDefinition;
-	const tracks = Object.keys(songDefinition);
+	let currentSection;
+	let nextSectionPlaysAt = 0;
+	let currentTracks;
 
 	const loadSound = function(soundObj) {
 		return new Promise(function(res, rej) {
@@ -59,18 +58,40 @@
 		made (when the page loads).
 		To convert a audio context time to a song time, you just subtract the seconds paused. Do the
 		inverse for song time to audio context time.
+		We also have "sections" and "tracks". Sections are objects that hold tracks. Tracks are actually
+		sound selector functions that return the next sound to be played. We calculate
+		a "global bar number" var (schedulingForBar) to know when sections need to change.
+		Tracks have their own "local" bar number that gets set to 0 when a section switch happens.
 		*/
 
 		// convert audioContext time to song time.
 		const songTime = audioContext.currentTime - totalTimePaused;
 
-		tracks.forEach(function(trackName) {
-			const track = songDefinition[trackName];
+		// The bar number we are currently scheduling for. This is like the global bar number that always grows.
+		const schedulingForBar = Math.floor((songTime + scheduleAheadTime) / barLength);
+
+		if (songTime > nextSectionPlaysAt - scheduleAheadTime) {
+			// Need to select the next section.
+			currentSection = songDefinition.selectSection(schedulingForBar, currentSection);
+			// keep track of what bar this section started at - needed for adding to the track bar numbers.
+			currentSection.startingBar = schedulingForBar;
+			// calculate when the next section switch happens (a "song time" var).
+			nextSectionPlaysAt = (schedulingForBar + currentSection.bars) * barLength + startPadding;
+			// get the tracks (sound selector functions) and init their local bar numbers to 0.
+			currentTracks = Object.keys(currentSection.tracks).map(function(trackName) {
+				const track = currentSection.tracks[trackName];
+				track.currentBar = 0;
+				return track;
+			});
+		}
+
+		// loop through the tracks (sound selector functions) and check if we need to schedule.
+		currentTracks.forEach(function(selectSound) {
 			// nextSoundPlaysAt is a "song time" variable.
-			const nextSoundPlaysAt = track.currentBarNumber * barLength + startPadding;
+			const nextSoundPlaysAt = (selectSound.currentBar + currentSection.startingBar) * barLength + startPadding;
 			if (songTime > nextSoundPlaysAt - scheduleAheadTime) {
 				// we are close enough to the next sound playing, so schedule it.
-				const nextSound = track.sounds[track.soundSelector(track.currentBarNumber)];
+				const nextSound = selectSound(selectSound.currentBar);
 
 				const buffer = audioContext.createBufferSource();
 				// connect the sound to the gain node (which connects to the destination).
@@ -79,12 +100,12 @@
 				buffer.buffer = nextSound.audio;
 
 				// this is a fun variable.
-				buffer.playbackRate.value = playbackRate;
+				buffer.playbackRate.value = songDefinition.playbackRate || 1.0;
 
 				// convert nextSoundPlaysAt to a "audioContext time" and perform the schedule.
 				buffer.start(nextSoundPlaysAt + totalTimePaused);
 
-				track.currentBarNumber += nextSound.bars;
+				selectSound.currentBar += nextSound.bars;
 			}
 		});
 	};
@@ -118,32 +139,6 @@
 	playPauseBtn.textContent = 'Loading...';
 	playPauseBtn.disabled = true;
 
-	const loadAllSounds = function() {
-		let allSounds = [];
-		tracks.forEach(function(trackName) {
-			let track = songDefinition[trackName];
-			track.currentBarNumber = 0;
-			Object.keys(track.sounds).forEach(function(soundName) {
-				let sound = track.sounds[soundName];
-				// set up gain nodes per sound so that sounds in the same track can
-				// play at different volumes and overlap.
-				sound.gainNode = audioContext.createGain();
-				sound.gainNode.gain.value = sound.volume;
-				// connect the gain nodes to the destination.
-				sound.gainNode.connect(audioContext.destination);
-				allSounds.push(sound);
-			});
-		});
-		Promise.all(allSounds.map(loadSound))
-		.then(function() {
-			playPauseBtn.disabled = false;
-			playPauseBtn.textContent = 'Play';
-		})
-		.catch(util.simpleErr);
-	};
-
-	loadAllSounds();
-
 	playPauseBtn.addEventListener('click', function() {
 		isPlaying = !isPlaying;
 		if (isPlaying) {
@@ -158,4 +153,22 @@
 		}
 	});
 
+	const loadAllSounds = function() {
+		Promise.all(Object.keys(songDefinition.sounds).map(function(soundName) {
+			const sound = songDefinition.sounds[soundName];
+			// set up gain nodes per sound so that sounds in the same track can
+			// play at different volumes and overlap.
+			sound.gainNode = audioContext.createGain();
+			sound.gainNode.gain.value = sound.volume;
+			// connect the gain nodes to the destination.
+			sound.gainNode.connect(audioContext.destination);
+			// load the sound file.
+			return loadSound(sound);
+		})).then(function() {
+			playPauseBtn.disabled = false;
+			playPauseBtn.textContent = 'Play';
+		}).catch(util.simpleErr);
+	};
+
+	loadAllSounds();
 })();
