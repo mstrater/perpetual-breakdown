@@ -28,6 +28,7 @@
 				url: 'crash_ride.wav',
 				bars: 4
 			},
+			// FILLS
 			fill1: {
 				url: 'fill_1.wav',
 				bars: 4,
@@ -48,6 +49,7 @@
 				bars: 4,
 				groups: ['fills']
 			},
+			// HITS
 			downOne: {
 				url: 'full_down_one.wav',
 				bars: 1,
@@ -88,6 +90,7 @@
 				bars: 2,
 				groups: ['hits', 'upHits']
 			},
+			// HIGHS
 			highOneUpOne: {
 				url: 'full_high_one_up_one.wav',
 				bars: 1,
@@ -151,6 +154,243 @@
 			squeal: {
 				url: 'full_guitar_squeal.wav',
 				bars: 2
+			},
+			// TREMELO LEFT
+			TremeloL0: {
+				url: 'TremeloL0.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL1: {
+				url: 'TremeloL1.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL2: {
+				url: 'TremeloL2.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL3: {
+				url: 'TremeloL3.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL4: {
+				url: 'TremeloL4.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL5: {
+				url: 'TremeloL5.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL6: {
+				url: 'TremeloL6.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL7: {
+				url: 'TremeloL7.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL8: {
+				url: 'TremeloL8.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL9: {
+				url: 'TremeloL9.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL10: {
+				url: 'TremeloL10.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL11: {
+				url: 'TremeloL11.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL12: {
+				url: 'TremeloL12.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL13: {
+				url: 'TremeloL13.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL14: {
+				url: 'TremeloL14.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL15: {
+				url: 'TremeloL15.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL16: {
+				url: 'TremeloL16.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL17: {
+				url: 'TremeloL17.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL18: {
+				url: 'TremeloL18.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL19: {
+				url: 'TremeloL19.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL20: {
+				url: 'TremeloL20.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			TremeloL21: {
+				url: 'TremeloL21.wav',
+				bars: 4,
+				groups: ['tremeloLeft']
+			},
+			// TREMELO RIGHT
+			TremeloR0: {
+				url: 'TremeloR0.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR1: {
+				url: 'TremeloR1.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR2: {
+				url: 'TremeloR2.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR3: {
+				url: 'TremeloR3.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR4: {
+				url: 'TremeloR4.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR5: {
+				url: 'TremeloR5.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR6: {
+				url: 'TremeloR6.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR6Plus: {
+				url: 'TremeloR6+.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR7: {
+				url: 'TremeloR7.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR8: {
+				url: 'TremeloR8.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR9: {
+				url: 'TremeloR9.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR10: {
+				url: 'TremeloR10.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR11: {
+				url: 'TremeloR11.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR12: {
+				url: 'TremeloR12.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR13: {
+				url: 'TremeloR13.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR13Plus: {
+				url: 'TremeloR13+.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR14: {
+				url: 'TremeloR14.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR15: {
+				url: 'TremeloR15.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR16: {
+				url: 'TremeloR16.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR17: {
+				url: 'TremeloR17.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR18: {
+				url: 'TremeloR18.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR19: {
+				url: 'TremeloR19.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR20: {
+				url: 'TremeloR20.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR20Plus: {
+				url: 'TremeloR20+.wav',
+				bars: 4,
+				groups: ['tremeloRight']
+			},
+			TremeloR21: {
+				url: 'TremeloR21.wav',
+				bars: 4,
+				groups: ['tremeloRight']
 			}
 		},
 		sections: {
@@ -181,7 +421,6 @@
 							//always have a strong downbeat every 8
 							return util.randArrayEntry(songDef.soundGroups.downHits);
 						}
-
 						if (barNumber % 64 < 32) {
 							//no extras
 							return util.randArrayEntry(songDef.soundGroups.hits);
@@ -198,17 +437,23 @@
 					}
 				}
 			},
-			testSection: {
-				bars: 32,
+			tremeloCounterpointSection: {
+				bars: 64,
 				tracks: {
-					wtf: function(barNumber) {
-						const r = Math.random();
-						if (r < 0.33) {
-							return songDef.sounds.squeal;
-						} else if (r < 0.66) {
-							return songDef.sounds.highOne;
+					leftGuitar: function(barNumber) {
+						var note = highAndLow.lowArray[barNumber/4];
+						return songDef.sounds["TremeloL" + note]; //TODO null check
+					},
+					rightGuitar: function(barNumber) {
+						var note = highAndLow.highArray[barNumber/4];
+						if (note === 6.5) {
+							return songDef.sounds.TremeloR6Plus;
+						} else if (note === 13.5) {
+							return songDef.sounds.TremeloR13Plus;
+						} else if (note === 20.5) {
+							return songDef.sounds.TremeloR20Plus;
 						} else {
-							return songDef.sounds.highTwo;
+							return songDef.sounds["TremeloR" + note]; //TODO null check
 						}
 					}
 				}
@@ -218,10 +463,14 @@
 			if (!lastSection) {
 				return songDef.sections.cymbalAndHitsSection;
 			}
-			if (Math.random() < 0.5) {
-				return songDef.sections.cymbalAndHitsSection;
+			if (Math.random() < 0.7) {
+				if (lastSection === songDef.sections.cymbalAndHitsSection) {
+					return songDef.sections.tremeloCounterpointSection;
+				} else {
+					return songDef.sections.cymbalAndHitsSection
+				}
 			} else {
-				return songDef.sections.testSection;
+				return lastSection;
 			}
 		}
 	};
