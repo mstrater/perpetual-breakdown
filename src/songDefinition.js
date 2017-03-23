@@ -7,6 +7,8 @@
 
 	const defaultSoundVolume = 0.5;
 
+	const counterpoint = window.app.counterpoint.generate();
+
 	const makeRest = function(bars) {
 		return {
 			rest: true,
@@ -448,11 +450,11 @@
 				bars: 64,
 				tracks: {
 					leftGuitar: function(barNumber) {
-						var note = highAndLow.lowArray[barNumber/4];
-						return songDef.sounds["TremeloL" + note]; //TODO null check
+						var note = counterpoint.lowArray[barNumber / 4];
+						return songDef.sounds['TremeloL' + note]; //TODO null check
 					},
 					rightGuitar: function(barNumber) {
-						var note = highAndLow.highArray[barNumber/4];
+						var note = counterpoint.highArray[barNumber / 4];
 						if (note === 6.5) {
 							return songDef.sounds.TremeloR6Plus;
 						} else if (note === 13.5) {
@@ -460,10 +462,12 @@
 						} else if (note === 20.5) {
 							return songDef.sounds.TremeloR20Plus;
 						} else {
-							return songDef.sounds["TremeloR" + note]; //TODO null check
+							return songDef.sounds['TremeloR' + note]; //TODO null check
 						}
 					},
 					finalFill: function(barNumber) {
+						// note to max: I just wanted to see what this sounded like and
+						// I wanted to test makeRest(). Feel free to remove it.
 						if (barNumber === 60) {
 							return util.randArrayEntry(songDef.soundGroups.fills);
 						} else {
@@ -481,7 +485,7 @@
 				if (lastSection === songDef.sections.cymbalAndHitsSection) {
 					return songDef.sections.tremeloCounterpointSection;
 				} else {
-					return songDef.sections.cymbalAndHitsSection
+					return songDef.sections.cymbalAndHitsSection;
 				}
 			} else {
 				return lastSection;
