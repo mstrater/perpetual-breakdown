@@ -93,17 +93,19 @@
 				// we are close enough to the next sound playing, so schedule it.
 				const nextSound = selectSound(selectSound.currentBar);
 
-				const buffer = audioContext.createBufferSource();
-				// connect the sound to the gain node (which connects to the destination).
-				buffer.connect(nextSound.gainNode);
-				// Make the buffer point at the AudioBuffer.
-				buffer.buffer = nextSound.audio;
+				if (!nextSound.rest) {
+					const buffer = audioContext.createBufferSource();
+					// connect the sound to the gain node (which connects to the destination).
+					buffer.connect(nextSound.gainNode);
+					// Make the buffer point at the AudioBuffer.
+					buffer.buffer = nextSound.audio;
 
-				// this is a fun variable.
-				buffer.playbackRate.value = songDefinition.playbackRate || 1.0;
+					// this is a fun variable.
+					buffer.playbackRate.value = songDefinition.playbackRate || 1.0;
 
-				// convert nextSoundPlaysAt to a "audioContext time" and perform the schedule.
-				buffer.start(nextSoundPlaysAt + totalTimePaused);
+					// convert nextSoundPlaysAt to a "audioContext time" and perform the schedule.
+					buffer.start(nextSoundPlaysAt + totalTimePaused);
+				}
 
 				selectSound.currentBar += nextSound.bars;
 			}

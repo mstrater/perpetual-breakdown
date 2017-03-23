@@ -7,6 +7,13 @@
 
 	const defaultSoundVolume = 0.5;
 
+	const makeRest = function(bars) {
+		return {
+			rest: true,
+			bars: bars
+		};
+	};
+
 	const songDef = {
 		bpm: 180,
 		// The rate at which the samples are played back (this changes pitch).
@@ -454,6 +461,13 @@
 							return songDef.sounds.TremeloR20Plus;
 						} else {
 							return songDef.sounds["TremeloR" + note]; //TODO null check
+						}
+					},
+					finalFill: function(barNumber) {
+						if (barNumber === 60) {
+							return util.randArrayEntry(songDef.soundGroups.fills);
+						} else {
+							return makeRest(4);
 						}
 					}
 				}
