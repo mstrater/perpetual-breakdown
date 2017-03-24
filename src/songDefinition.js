@@ -51,12 +51,17 @@
 			fill3: {
 				url: 'fill_3.wav',
 				bars: 4,
-				groups: ['fills']
+				groups: ['fills', 'counterpointFills']
 			},
 			fill4: {
 				url: 'fill_4.wav',
 				bars: 4,
-				groups: ['fills']
+				groups: ['fills', 'counterpointFills']
+			},
+			fill5: {
+				url: 'fill_5.wav',
+				bars: 4,
+				groups: ['fills', 'counterpointFills']
 			},
 			// HITS
 			downOne: {
@@ -400,6 +405,34 @@
 				url: 'TremeloR21.wav',
 				bars: 4,
 				groups: ['tremeloRight']
+			},
+			// COUNTERPOINT DRUMS
+			drumCounterpoint1: {
+				url: 'drum_counterpoint_1.wav',
+				bars: 4,
+				volume: defaultSoundVolume - 0.1,
+				groups: ['counterpointDrums']
+			},
+			drumCounterpoint2: {
+				url: 'drum_counterpoint_2.wav',
+				bars: 4,
+				volume: defaultSoundVolume - 0.1,
+				groups: ['counterpointDrums']
+			},
+			drumCounterpoint3: {
+				url: 'drum_counterpoint_3.wav',
+				bars: 4,
+				volume: defaultSoundVolume - 0.1,
+				groups: ['counterpointDrums']
+			},
+			drumCounterpoint4: {
+				url: 'drum_counterpoint_4.wav',
+				bars: 4,
+				groups: ['counterpointDrums']
+			},
+			drumSingleNoiseCrash: {
+				url: 'drum_single_noise_crash.wav',
+				bars: 4
 			}
 		},
 		sections: {
@@ -426,6 +459,7 @@
 						}
 					},
 					guitar: function(barNumber) {
+						//TODO make sure the last sample fits in the remaining time
 						if (barNumber % 8 === 0) {
 							//always have a strong downbeat every 8
 							return util.randArrayEntry(songDef.soundGroups.downHits);
@@ -465,13 +499,20 @@
 							return songDef.sounds['TremeloR' + note]; //TODO null check
 						}
 					},
-					finalFill: function(barNumber) {
-						// note to max: I just wanted to see what this sounded like and
-						// I wanted to test makeRest(). Feel free to remove it.
-						if (barNumber === 60) {
-							return util.randArrayEntry(songDef.soundGroups.fills);
+					startingCrash: function(barNumber) {
+						if (barNumber % 16 === 0) {
+							return songDef.sounds.drumSingleNoiseCrash;
 						} else {
 							return makeRest(4);
+						}
+					},
+					drums: function(barNumber, lastSound) {
+						if (barNumber % 32 === 0) {
+							return util.randArrayEntry(songDef.soundGroups.counterpointDrums);
+						} else if (barNumber % 32 === 28){
+							return util.randArrayEntry(songDef.soundGroups.counterpointFills);
+						} else {
+							return lastSound;
 						}
 					}
 				}

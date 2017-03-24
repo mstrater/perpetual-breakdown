@@ -91,7 +91,7 @@
 			const nextSoundPlaysAt = (selectSound.currentBar + currentSection.startingBar) * barLength + startPadding;
 			if (songTime > nextSoundPlaysAt - scheduleAheadTime) {
 				// we are close enough to the next sound playing, so schedule it.
-				const nextSound = selectSound(selectSound.currentBar);
+				const nextSound = selectSound(selectSound.currentBar, selectSound.lastSound);
 
 				if (!nextSound.rest) {
 					const buffer = audioContext.createBufferSource();
@@ -108,6 +108,7 @@
 				}
 
 				selectSound.currentBar += nextSound.bars;
+				selectSound.lastSound = nextSound;
 			}
 		});
 	};
