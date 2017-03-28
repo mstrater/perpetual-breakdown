@@ -1,4 +1,4 @@
-//(function() {
+(function() {
 	'use strict';
 
 	const util = window.app.util;
@@ -15,20 +15,44 @@
 	const sectionTransitionMatrix = {
 		crashBreakdown: {
 			crashBreakdown: 0.05,
-			openHatBreakdown: 0.6,
-			tremeloCounterpointSection: 0.35
+			openHatBreakdown: 0.5,
+			tremeloCounterpointSection: 0.25,
+			hitBridgeSection: 0.2
 		},
 		openHatBreakdown: {
-			crashBreakdown: 0.05,
-			openHatBreakdown: 0.15,
-			tremeloCounterpointSection: 0.8
+			crashBreakdown: 0.15,
+			openHatBreakdown: 0.05,
+			tremeloCounterpointSection: 0.6,
+			hitBridgeSection: 0.2
 		},
 		tremeloCounterpointSection: {
-			crashBreakdown: 0.45,
-			openHatBreakdown: 0.45,
-			tremeloCounterpointSection: 0.1
+			crashBreakdown: 0.40,
+			openHatBreakdown: 0.40,
+			tremeloCounterpointSection: 0.1,
+			hitBridgeSection: 0.1
+		},
+		hitBridgeSection: {
+			crashBreakdown: 0.3,
+			openHatBreakdown: 0.3,
+			tremeloCounterpointSection: 0.3,
+			hitBridgeSection: 0.1
 		}
 	};
+
+	const checkSectionTransitionMatrix = function() {
+		const keys1 = Object.keys(sectionTransitionMatrix);
+		for (let i=0; i<keys1.length; i++) {
+			const section = sectionTransitionMatrix[keys1[i]];
+			const keys2 = Object.keys(section);
+			let totalProb = 0;
+			for (let j=0; j<keys2.length; j++) {
+				totalProb += section[keys2[j]];
+			}
+			console.assert(Math.abs(totalProb - 1) < 0.000001, keys1[i] + " has probability totals not equal to 1.0!")
+		}
+	}
+	// Verify the transition matrix on start
+	checkSectionTransitionMatrix();
 
 	const stochasticSectionSelector = function(sectionName) {
 		const probabilities = sectionTransitionMatrix[sectionName];
@@ -44,6 +68,18 @@
 		console.assert(false, "Couldn't select a section properly!");
 		return "crashBreakdown";
 	};
+
+	const simulateSectionTransitions = function(numTransitions) {
+		let result = "crashBreakdown";
+		let currentSection = "crashBreakdown";
+		for (let i=0; i<numTransitions; i++) {
+			currentSection = stochasticSectionSelector(currentSection);
+			result += "\n" + currentSection;
+		}
+		console.log(result);
+	}
+	// Uncomment below to get a printout run of sections
+	//simulateSectionTransitions(100);
 
 	const makeRest = function(bars) {
 		return {
@@ -99,46 +135,46 @@
 				bars: 4,
 				groups: ['fills', 'counterpointFills']
 			},
-			// HITS
+			// BREAKDOWN
 			downOne: {
 				url: 'full_down_one.wav',
 				bars: 1,
-				groups: ['hits', 'downHits']
+				groups: ['breakdown', 'breakdownDownbeats']
 			},
 			downThree: {
 				url: 'full_down_three.wav',
 				bars: 1,
-				groups: ['hits', 'downHits']
+				groups: ['breakdown', 'breakdownDownbeats']
 			},
 			four: {
 				url: 'full_four.wav',
 				bars: 1,
-				groups: ['hits', 'downHits']
+				groups: ['breakdown', 'breakdownDownbeats']
 			},
 			upOne: {
 				url: 'full_up_one.wav',
 				bars: 1,
-				groups: ['hits', 'upHits']
+				groups: ['breakdown', 'breakdownUpbeats']
 			},
 			upThree: {
 				url: 'full_up_three.wav',
 				bars: 2,
-				groups: ['hits', 'upHits']
+				groups: ['breakdown', 'breakdownUpbeats']
 			},
 			upThreeDownThree: {
 				url: 'full_up_three_down_three.wav',
 				bars: 2,
-				groups: ['hits', 'upHits']
+				groups: ['breakdown', 'breakdownUpbeats']
 			},
 			upThreeFour: {
 				url: 'full_up_three_four.wav',
 				bars: 2,
-				groups: ['hits', 'upHits']
+				groups: ['breakdown', 'breakdownUpbeats']
 			},
 			upThreeUpOne: {
 				url: 'full_up_three_up_one.wav',
 				bars: 2,
-				groups: ['hits', 'upHits']
+				groups: ['breakdown', 'breakdownUpbeats']
 			},
 			// HIGHS
 			highOneUpOne: {
@@ -206,239 +242,239 @@
 				bars: 2
 			},
 			// TREMELO LEFT
-			TremeloL0: {
-				url: 'TremeloL0.wav',
+			tremeloL0: {
+				url: 'tremeloL0.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL1: {
-				url: 'TremeloL1.wav',
+			tremeloL1: {
+				url: 'tremeloL1.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL2: {
-				url: 'TremeloL2.wav',
+			tremeloL2: {
+				url: 'tremeloL2.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL3: {
-				url: 'TremeloL3.wav',
+			tremeloL3: {
+				url: 'tremeloL3.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL4: {
-				url: 'TremeloL4.wav',
+			tremeloL4: {
+				url: 'tremeloL4.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL5: {
-				url: 'TremeloL5.wav',
+			tremeloL5: {
+				url: 'tremeloL5.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL6: {
-				url: 'TremeloL6.wav',
+			tremeloL6: {
+				url: 'tremeloL6.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL7: {
-				url: 'TremeloL7.wav',
+			tremeloL7: {
+				url: 'tremeloL7.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL8: {
-				url: 'TremeloL8.wav',
+			tremeloL8: {
+				url: 'tremeloL8.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL9: {
-				url: 'TremeloL9.wav',
+			tremeloL9: {
+				url: 'tremeloL9.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL10: {
-				url: 'TremeloL10.wav',
+			tremeloL10: {
+				url: 'tremeloL10.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL11: {
-				url: 'TremeloL11.wav',
+			tremeloL11: {
+				url: 'tremeloL11.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL12: {
-				url: 'TremeloL12.wav',
+			tremeloL12: {
+				url: 'tremeloL12.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL13: {
-				url: 'TremeloL13.wav',
+			tremeloL13: {
+				url: 'tremeloL13.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL14: {
-				url: 'TremeloL14.wav',
+			tremeloL14: {
+				url: 'tremeloL14.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL15: {
-				url: 'TremeloL15.wav',
+			tremeloL15: {
+				url: 'tremeloL15.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL16: {
-				url: 'TremeloL16.wav',
+			tremeloL16: {
+				url: 'tremeloL16.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL17: {
-				url: 'TremeloL17.wav',
+			tremeloL17: {
+				url: 'tremeloL17.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL18: {
-				url: 'TremeloL18.wav',
+			tremeloL18: {
+				url: 'tremeloL18.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL19: {
-				url: 'TremeloL19.wav',
+			tremeloL19: {
+				url: 'tremeloL19.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL20: {
-				url: 'TremeloL20.wav',
+			tremeloL20: {
+				url: 'tremeloL20.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
-			TremeloL21: {
-				url: 'TremeloL21.wav',
+			tremeloL21: {
+				url: 'tremeloL21.wav',
 				bars: 4,
 				groups: ['tremeloLeft']
 			},
 			// TREMELO RIGHT
-			TremeloR0: {
-				url: 'TremeloR0.wav',
+			tremeloR0: {
+				url: 'tremeloR0.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR1: {
-				url: 'TremeloR1.wav',
+			tremeloR1: {
+				url: 'tremeloR1.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR2: {
-				url: 'TremeloR2.wav',
+			tremeloR2: {
+				url: 'tremeloR2.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR3: {
-				url: 'TremeloR3.wav',
+			tremeloR3: {
+				url: 'tremeloR3.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR4: {
-				url: 'TremeloR4.wav',
+			tremeloR4: {
+				url: 'tremeloR4.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR5: {
-				url: 'TremeloR5.wav',
+			tremeloR5: {
+				url: 'tremeloR5.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR6: {
-				url: 'TremeloR6.wav',
+			tremeloR6: {
+				url: 'tremeloR6.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR6Plus: {
-				url: 'TremeloR6+.wav',
+			tremeloR6Plus: {
+				url: 'tremeloR6+.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR7: {
-				url: 'TremeloR7.wav',
+			tremeloR7: {
+				url: 'tremeloR7.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR8: {
-				url: 'TremeloR8.wav',
+			tremeloR8: {
+				url: 'tremeloR8.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR9: {
-				url: 'TremeloR9.wav',
+			tremeloR9: {
+				url: 'tremeloR9.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR10: {
-				url: 'TremeloR10.wav',
+			tremeloR10: {
+				url: 'tremeloR10.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR11: {
-				url: 'TremeloR11.wav',
+			tremeloR11: {
+				url: 'tremeloR11.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR12: {
-				url: 'TremeloR12.wav',
+			tremeloR12: {
+				url: 'tremeloR12.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR13: {
-				url: 'TremeloR13.wav',
+			tremeloR13: {
+				url: 'tremeloR13.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR13Plus: {
-				url: 'TremeloR13+.wav',
+			tremeloR13Plus: {
+				url: 'tremeloR13+.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR14: {
-				url: 'TremeloR14.wav',
+			tremeloR14: {
+				url: 'tremeloR14.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR15: {
-				url: 'TremeloR15.wav',
+			tremeloR15: {
+				url: 'tremeloR15.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR16: {
-				url: 'TremeloR16.wav',
+			tremeloR16: {
+				url: 'tremeloR16.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR17: {
-				url: 'TremeloR17.wav',
+			tremeloR17: {
+				url: 'tremeloR17.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR18: {
-				url: 'TremeloR18.wav',
+			tremeloR18: {
+				url: 'tremeloR18.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR19: {
-				url: 'TremeloR19.wav',
+			tremeloR19: {
+				url: 'tremeloR19.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR20: {
-				url: 'TremeloR20.wav',
+			tremeloR20: {
+				url: 'tremeloR20.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR20Plus: {
-				url: 'TremeloR20+.wav',
+			tremeloR20Plus: {
+				url: 'tremeloR20+.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
-			TremeloR21: {
-				url: 'TremeloR21.wav',
+			tremeloR21: {
+				url: 'tremeloR21.wav',
 				bars: 4,
 				groups: ['tremeloRight']
 			},
@@ -469,6 +505,378 @@
 			drumSingleNoiseCrash: {
 				url: 'drum_single_noise_crash.wav',
 				bars: 4
+			},
+			// HITS LEFT
+			hitL0: {
+				url: 'hitL0.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL1: {
+				url: 'hitL1.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL2: {
+				url: 'hitL2.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL3: {
+				url: 'hitL3.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL4: {
+				url: 'hitL4.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL5: {
+				url: 'hitL5.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL6: {
+				url: 'hitL6.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL7: {
+				url: 'hitL7.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL8: {
+				url: 'hitL8.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL9: {
+				url: 'hitL9.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL10: {
+				url: 'hitL10.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL11: {
+				url: 'hitL11.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL12: {
+				url: 'hitL12.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL13: {
+				url: 'hitL13.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL14: {
+				url: 'hitL14.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL15: {
+				url: 'hitL15.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL16: {
+				url: 'hitL16.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL17: {
+				url: 'hitL17.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL18: {
+				url: 'hitL18.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL19: {
+				url: 'hitL19.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL20: {
+				url: 'hitL20.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL21: {
+				url: 'hitL21.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL22: {
+				url: 'hitL22.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL23: {
+				url: 'hitL23.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL24: {
+				url: 'hitL24.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL25: {
+				url: 'hitL25.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL26: {
+				url: 'hitL26.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL27: {
+				url: 'hitL27.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL28: {
+				url: 'hitL28.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL29: {
+				url: 'hitL29.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL30: {
+				url: 'hitL30.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL31: {
+				url: 'hitL31.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL32: {
+				url: 'hitL32.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL33: {
+				url: 'hitL33.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL34: {
+				url: 'hitL34.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL35: {
+				url: 'hitL35.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			hitL36: {
+				url: 'hitL36.wav',
+				bars: 1,
+				groups: ['hitsLeft']
+			},
+			// HITS RIGHT
+			hitR0: {
+				url: 'hitR0.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR1: {
+				url: 'hitR1.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR2: {
+				url: 'hitR2.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR3: {
+				url: 'hitR3.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR4: {
+				url: 'hitR4.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR5: {
+				url: 'hitR5.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR6: {
+				url: 'hitR6.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR7: {
+				url: 'hitR7.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR8: {
+				url: 'hitR8.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR9: {
+				url: 'hitR9.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR10: {
+				url: 'hitR10.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR11: {
+				url: 'hitR11.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR12: {
+				url: 'hitR12.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR13: {
+				url: 'hitR13.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR14: {
+				url: 'hitR14.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR15: {
+				url: 'hitR15.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR16: {
+				url: 'hitR16.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR17: {
+				url: 'hitR17.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR18: {
+				url: 'hitR18.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR19: {
+				url: 'hitR19.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR20: {
+				url: 'hitR20.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR21: {
+				url: 'hitR21.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR22: {
+				url: 'hitR22.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR23: {
+				url: 'hitR23.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR24: {
+				url: 'hitR24.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR25: {
+				url: 'hitR25.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR26: {
+				url: 'hitR26.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR27: {
+				url: 'hitR27.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR28: {
+				url: 'hitR28.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR29: {
+				url: 'hitR29.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR30: {
+				url: 'hitR30.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR31: {
+				url: 'hitR31.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR32: {
+				url: 'hitR32.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR33: {
+				url: 'hitR33.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR34: {
+				url: 'hitR34.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR35: {
+				url: 'hitR35.wav',
+				bars: 1,
+				groups: ['hitsRight']
+			},
+			hitR36: {
+				url: 'hitR36.wav',
+				bars: 1,
+				groups: ['hitsRight']
 			}
 		},
 		sections: {
@@ -493,10 +901,10 @@
 						//TODO make sure the last sample fits in the remaining time
 						if (barNumber % 8 === 0) {
 							//always have a strong downbeat every 8
-							return util.randArrayEntry(songDef.soundGroups.downHits);
+							return util.randArrayEntry(songDef.soundGroups.breakdownDownbeats);
 						}
 						//no extras
-						return util.randArrayEntry(songDef.soundGroups.hits);
+						return util.randArrayEntry(songDef.soundGroups.breakdown);
 					}
 				}
 			},
@@ -519,7 +927,7 @@
 						//TODO make sure the last sample fits in the remaining time
 						if (barNumber % 8 === 0) {
 							//always have a strong downbeat every 8
-							return util.randArrayEntry(songDef.soundGroups.downHits);
+							return util.randArrayEntry(songDef.soundGroups.breakdownDownbeats);
 						} else {
 							//allows extras
 							if (barNumber % 4 === 2 && Math.random() < 0.3) {
@@ -527,7 +935,7 @@
 							} else if (Math.random() < 0.5) {
 								return util.randArrayEntry(songDef.soundGroups.highs);
 							} else {
-								return util.randArrayEntry(songDef.soundGroups.hits);
+								return util.randArrayEntry(songDef.soundGroups.breakdown);
 							}
 						}
 					}
@@ -540,18 +948,18 @@
 				tracks: {
 					leftGuitar: function(barNumber) {
 						var note = counterpoint.lowArray[barNumber / 4];
-						return songDef.sounds['TremeloL' + note]; //TODO null check
+						return songDef.sounds['tremeloL' + note]; //TODO null check
 					},
 					rightGuitar: function(barNumber) {
 						var note = counterpoint.highArray[barNumber / 4];
 						if (note === 6.5) {
-							return songDef.sounds.TremeloR6Plus;
+							return songDef.sounds.tremeloR6Plus;
 						} else if (note === 13.5) {
-							return songDef.sounds.TremeloR13Plus;
+							return songDef.sounds.tremeloR13Plus;
 						} else if (note === 20.5) {
-							return songDef.sounds.TremeloR20Plus;
+							return songDef.sounds.tremeloR20Plus;
 						} else {
-							return songDef.sounds['TremeloR' + note]; //TODO null check
+							return songDef.sounds['tremeloR' + note]; //TODO null check
 						}
 					},
 					startingCrash: function(barNumber) {
@@ -569,6 +977,22 @@
 						} else {
 							return lastSound;
 						}
+					}
+				}
+			},
+			hitBridgeSection: {
+				// Keep the name for use in the stochasticSectionSelector process
+				name: 'hitBridgeSection',
+				bars: 16,
+				tracks: {
+					leftGuitar: function(barNumber) {
+						var note = counterpoint.lowArray[barNumber];
+						return songDef.sounds['hitL' + note]; //TODO null check
+					},
+					rightGuitar: function(barNumber) {
+						// Need to floor the value to deal with values 6.5, 13.5, 20.5
+						var note = Math.floor(counterpoint.highArray[barNumber]);
+						return songDef.sounds['hitR' + note]; //TODO null check
 					}
 				}
 			}
@@ -600,4 +1024,4 @@
 	});
 
 	window.app.songDefinition = songDef;
-//})();
+})();

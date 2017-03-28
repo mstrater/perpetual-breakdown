@@ -93,6 +93,7 @@
 				// we are close enough to the next sound playing, so schedule it.
 				const nextSound = selectSound(selectSound.currentBar, selectSound.lastSound);
 
+				console.assert(nextSound, "nextSound is undefined!");
 				if (!nextSound.rest) {
 					const buffer = audioContext.createBufferSource();
 					// connect the sound to the gain node (which connects to the destination).
