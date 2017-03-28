@@ -1,4 +1,4 @@
-(function() {
+//(function() {
 	'use strict';
 
 	const util = window.app.util;
@@ -8,6 +8,42 @@
 	const defaultSoundVolume = 0.5;
 
 	const counterpoint = window.app.counterpoint.generate();
+
+	// Holds the chance to move from one section to the next
+	// For example sectionTransitionMatrix.crashBreakdown.openHatBreakdown represents the chance to move from crashBreakdown to openHatBreakdown
+	// Each section object should contain an entry for each section and the total probability should equal 1.0
+	const sectionTransitionMatrix = {
+		crashBreakdown: {
+			crashBreakdown: 0.05,
+			openHatBreakdown: 0.6,
+			tremeloCounterpointSection: 0.35
+		},
+		openHatBreakdown: {
+			crashBreakdown: 0.05,
+			openHatBreakdown: 0.15,
+			tremeloCounterpointSection: 0.8
+		},
+		tremeloCounterpointSection: {
+			crashBreakdown: 0.45,
+			openHatBreakdown: 0.45,
+			tremeloCounterpointSection: 0.1
+		}
+	};
+
+	const stochasticSectionSelector = function(sectionName) {
+		const probabilities = sectionTransitionMatrix[sectionName];
+		const random = Math.random();
+		let probabilitySum = 0;
+		const keys = Object.keys(probabilities);
+		for (let i=0; i<keys.length; i++) {
+			probabilitySum += probabilities[keys[i]];
+			if (random < probabilitySum) {
+				return keys[i];
+			}
+		}
+		console.assert(false, "Couldn't select a section properly!");
+		return "crashBreakdown";
+	};
 
 	const makeRest = function(bars) {
 		return {
@@ -436,25 +472,20 @@
 			}
 		},
 		sections: {
-			cymbalAndHitsSection: {
-				bars: 64,
+			crashBreakdown: {
+				// Keep the name for use in the stochasticSectionSelector process
+				name: 'crashBreakdown',
+				bars: 32,
 				tracks: {
 					drums: function(barNumber) {
-						if (barNumber % 32 === 28) {
+						if (barNumber === 28) {
 							return util.randArrayEntry(songDef.soundGroups.fills);
-						} else if (barNumber % 64 < 32) {
+						} else {
 							//crash section
 							if (barNumber % 8 === 4 && Math.random() < 0.3) {
 								return songDef.sounds.crashRide;
 							} else {
 								return songDef.sounds.crash;
-							}
-						} else {
-							//open hat section
-							if (barNumber % 32 === 0) {
-								return songDef.sounds.crashOpenHat;
-							} else {
-								return songDef.sounds.openHat;
 							}
 						}
 					},
@@ -464,9 +495,31 @@
 							//always have a strong downbeat every 8
 							return util.randArrayEntry(songDef.soundGroups.downHits);
 						}
-						if (barNumber % 64 < 32) {
-							//no extras
-							return util.randArrayEntry(songDef.soundGroups.hits);
+						//no extras
+						return util.randArrayEntry(songDef.soundGroups.hits);
+					}
+				}
+			},
+			openHatBreakdown: {
+				// Keep the name for use in the stochasticSectionSelector process
+				name: 'openHatBreakdown',
+				bars: 32,
+				tracks: {
+					drums: function(barNumber) {
+						//open hat section
+						if (barNumber === 0) {
+							return songDef.sounds.crashOpenHat;
+						} else if (barNumber === 28) {
+							return util.randArrayEntry(songDef.soundGroups.fills);
+						} else {
+							return songDef.sounds.openHat;
+						}
+					},
+					guitar: function(barNumber) {
+						//TODO make sure the last sample fits in the remaining time
+						if (barNumber % 8 === 0) {
+							//always have a strong downbeat every 8
+							return util.randArrayEntry(songDef.soundGroups.downHits);
 						} else {
 							//allows extras
 							if (barNumber % 4 === 2 && Math.random() < 0.3) {
@@ -481,6 +534,8 @@
 				}
 			},
 			tremeloCounterpointSection: {
+				// Keep the name for use in the stochasticSectionSelector process
+				name: 'tremeloCounterpointSection',
 				bars: 64,
 				tracks: {
 					leftGuitar: function(barNumber) {
@@ -520,16 +575,9 @@
 		},
 		selectSection: function(barNumber, lastSection) {
 			if (!lastSection) {
-				return songDef.sections.cymbalAndHitsSection;
-			}
-			if (Math.random() < 0.7) {
-				if (lastSection === songDef.sections.cymbalAndHitsSection) {
-					return songDef.sections.tremeloCounterpointSection;
-				} else {
-					return songDef.sections.cymbalAndHitsSection;
-				}
+				return songDef.sections.crashBreakdown;
 			} else {
-				return lastSection;
+				return songDef.sections[stochasticSectionSelector(lastSection.name)];
 			}
 		}
 	};
@@ -552,4 +600,4 @@
 	});
 
 	window.app.songDefinition = songDef;
-})();
+//})();
