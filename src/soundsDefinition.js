@@ -53,22 +53,22 @@
 			downOne: {
 				url: 'full_down_one.wav',
 				bars: 1,
-				groups: ['breakdown', 'breakdownDownbeats']
+				groups: ['breakdown', 'breakdownDownbeats', 'breakdownOneBar', 'breakdownWithHighsOneBar']
 			},
 			downThree: {
 				url: 'full_down_three.wav',
 				bars: 1,
-				groups: ['breakdown', 'breakdownDownbeats']
+				groups: ['breakdown', 'breakdownDownbeats', 'breakdownOneBar', 'breakdownWithHighsOneBar']
 			},
 			four: {
 				url: 'full_four.wav',
 				bars: 1,
-				groups: ['breakdown', 'breakdownDownbeats']
+				groups: ['breakdown', 'breakdownDownbeats', 'breakdownOneBar', 'breakdownWithHighsOneBar']
 			},
 			upOne: {
 				url: 'full_up_one.wav',
 				bars: 1,
-				groups: ['breakdown', 'breakdownUpbeats']
+				groups: ['breakdown', 'breakdownUpbeats', 'breakdownOneBar', 'breakdownWithHighsOneBar']
 			},
 			upThree: {
 				url: 'full_up_three.wav',
@@ -94,12 +94,12 @@
 			highOneUpOne: {
 				url: 'full_high_one_up_one.wav',
 				bars: 1,
-				groups: ['highs']
+				groups: ['highs', 'breakdownWithHighsOneBar']
 			},
 			highTwoUpOne: {
 				url: 'full_high_two_up_one.wav',
 				bars: 1,
-				groups: ['highs']
+				groups: ['highs', 'breakdownWithHighsOneBar']
 			},
 			highOneUpThree: {
 				url: 'full_high_one_up_three.wav',
@@ -144,12 +144,12 @@
 			highOne: {
 				url: 'full_guitar_high_one.wav',
 				bars: 1,
-				groups: ['highs']
+				groups: ['highs', 'breakdownWithHighsOneBar']
 			},
 			highTwo: {
 				url: 'full_guitar_high_two.wav',
 				bars: 1,
-				groups: ['highs']
+				groups: ['highs', 'breakdownWithHighsOneBar']
 			},
 			squeal: {
 				url: 'full_guitar_squeal.wav',
@@ -791,6 +791,37 @@
 				url: 'hitR36.wav',
 				bars: 1,
 				groups: ['hitsRight']
+			},
+			// HITS DRUMS
+			hitDrums1: {
+				url: 'hit_bridge_1.wav',
+				bars: 4,
+				groups: ['hitsDrums']
+			},
+			hitDrums2: {
+				url: 'hit_bridge_2.wav',
+				bars: 4,
+				groups: ['hitsDrums']
+			},
+			hitDrums3: {
+				url: 'hit_bridge_3.wav',
+				bars: 4,
+				groups: ['hitsDrums']
+			},
+			hitDrums4: {
+				url: 'hit_bridge_4.wav',
+				bars: 4,
+				groups: ['hitsDrums']
+			},
+			hitDrums5: {
+				url: 'hit_bridge_5.wav',
+				bars: 4,
+				groups: ['hitsDrums']
+			},
+			hitDrums6: {
+				url: 'hit_bridge_6.wav',
+				bars: 4,
+				groups: ['hitsDrums']
 			}
 		}
 	};
