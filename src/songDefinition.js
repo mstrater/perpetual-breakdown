@@ -3,39 +3,8 @@
 
 	const util = window.app.util;
 
-	const createHitCounterpoint = function(counterpoint) {
-		const hitCounterpoint = {lowArray: counterpoint.lowArray.slice(), highArray: []};
-		// make the hit counterpoint intervals sound a bit different
-		for (let i=0; i<counterpoint.highArray.length-2; i++) {
-			let diff = counterpoint.highArray[i] - counterpoint.lowArray[i];
-			switch(diff) {
-				case 2:
-					hitCounterpoint.highArray[i] = hitCounterpoint.lowArray[i] + 2;
-					break;
-				case 4:
-					hitCounterpoint.highArray[i] = hitCounterpoint.lowArray[i] + 4;
-					break;
-				case 5:
-					hitCounterpoint.highArray[i] = hitCounterpoint.lowArray[i] + 6;
-					break;
-				case 7:
-					hitCounterpoint.highArray[i] = hitCounterpoint.lowArray[i] + 8;
-					break;
-				case 9:
-					hitCounterpoint.highArray[i] = hitCounterpoint.lowArray[i] + 10;
-					break;
-				default:
-					assert(false, "We hit an interval that should be impossible creating hitCounterpoint!")
-					hitCounterpoint.highArray[i] = hitCounterpoint.lowArray[i] + diff;
-			}
-		}
-		hitCounterpoint.highArray[counterpoint.lowArray.length-2] = hitCounterpoint.lowArray[counterpoint.lowArray.length-2] + 4;
-		hitCounterpoint.highArray[counterpoint.lowArray.length-1] = hitCounterpoint.lowArray[counterpoint.lowArray.length-1] + 7;
-		return hitCounterpoint;
-	};
-
 	const counterpoint = window.app.counterpoint.generate();
-	const hitCounterpoint = createHitCounterpoint(counterpoint);
+	const hitCounterpoint = window.app.counterpoint.createHitCounterpoint(counterpoint);
 
 	// Holds the chance to move from one section to the next
 	// For example sectionTransitionMatrix.crashBreakdown.openHatBreakdown represents the chance to move
@@ -144,7 +113,6 @@
 					guitar: function(barNumber) {
 						// If we're at the last bar pick a one bar sample to make sure it fits
 						if (barNumber === 31) {
-							console.log("HIT IT");
 							return util.randArrayEntry(songDef.soundGroups.breakdownOneBar);
 						} else if (barNumber % 8 === 0) {
 							// Always have a strong downbeat every 8
@@ -172,7 +140,6 @@
 					guitar: function(barNumber) {
 						// If we're at the last bar pick a one bar sample to make sure it fits
 						if (barNumber === 31) {
-							console.log("HIT IT 2");
 							return util.randArrayEntry(songDef.soundGroups.breakdownWithHighsOneBar);
 						} else if (barNumber % 8 === 0) {
 							// Always have a strong downbeat every 8
@@ -194,11 +161,11 @@
 				bars: 64,
 				tracks: {
 					leftGuitar: function(barNumber) {
-						var note = counterpoint.lowArray[barNumber / 4];
+						const note = counterpoint.lowArray[barNumber / 4];
 						return songDef.sounds['tremeloL' + note];
 					},
 					rightGuitar: function(barNumber) {
-						var note = counterpoint.highArray[barNumber / 4];
+						const note = counterpoint.highArray[barNumber / 4];
 						if (note === 6.5) {
 							return songDef.sounds.tremeloR6Plus;
 						} else if (note === 13.5) {
@@ -231,11 +198,11 @@
 				bars: 16,
 				tracks: {
 					leftGuitar: function(barNumber) {
-						var note = hitCounterpoint.lowArray[barNumber];
+						const note = hitCounterpoint.lowArray[barNumber];
 						return songDef.sounds['hitL' + note];
 					},
 					rightGuitar: function(barNumber) {
-						var note = hitCounterpoint.highArray[barNumber];
+						const note = hitCounterpoint.highArray[barNumber];
 						return songDef.sounds['hitR' + note];
 					},
 					drums: function() {

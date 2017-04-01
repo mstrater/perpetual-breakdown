@@ -10,13 +10,13 @@
 	}
 
 	function removeEntry(entry, array) {
-		var index = array.indexOf(entry);
+		const index = array.indexOf(entry);
 		if (index > -1) {
 			array.splice(index, 1);
 		}
 	}
 
-	var scales = {
+	const scales = {
 		ionian: {
 			deltas: [2, 2, 1, 2, 2, 2, 1],
 			useLeadingTone: false,
@@ -377,12 +377,37 @@
 		return highAndLow;
 	}
 
+	function createHitCounterpoint(counterpoint) {
+		const hitCounterpoint = {lowArray: counterpoint.lowArray.slice(), highArray: []};
+		// make the hit counterpoint intervals sound a bit different
+		const diffToHighOffset = {
+			2: 2,
+			4: 4,
+			5: 6,
+			7: 8,
+			9: 10
+		};
+		for (let i = 0; i < counterpoint.highArray.length - 2; i++) {
+			const diff = counterpoint.highArray[i] - counterpoint.lowArray[i];
+			let offset = diffToHighOffset[diff];
+			if (offset === undefined) {
+				console.error('We hit an interval that should be impossible creating hitCounterpoint!');
+				offset = diff;
+			}
+			hitCounterpoint.highArray[i] = hitCounterpoint.lowArray[i] + offset;
+		}
+		hitCounterpoint.highArray[counterpoint.lowArray.length - 2] = hitCounterpoint.lowArray[counterpoint.lowArray.length - 2] + 4;
+		hitCounterpoint.highArray[counterpoint.lowArray.length - 1] = hitCounterpoint.lowArray[counterpoint.lowArray.length - 1] + 7;
+		return hitCounterpoint;
+	}
+
 	function generate() {
 		const scale = scales.aeolian;
 		return transposeHighAndLowUpOctave(findValidRangeLowAndHighArray(scale));
 	}
 
 	window.app.counterpoint = {
-		generate: generate
+		generate,
+		createHitCounterpoint
 	};
 })();
