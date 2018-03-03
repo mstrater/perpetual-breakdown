@@ -51,41 +51,49 @@
 			},
 			// BREAKDOWN
 			downOne: {
+				name: 'downOne', // name used in UI
 				url: 'full_down_one.wav',
 				bars: 1,
 				groups: ['breakdown', 'breakdownDownbeats', 'breakdownOneBar', 'breakdownWithHighsOneBar']
 			},
 			downThree: {
+				name: 'downThree',
 				url: 'full_down_three.wav',
 				bars: 1,
 				groups: ['breakdown', 'breakdownDownbeats', 'breakdownOneBar', 'breakdownWithHighsOneBar']
 			},
 			four: {
+				name: 'four',
 				url: 'full_four.wav',
 				bars: 1,
 				groups: ['breakdown', 'breakdownDownbeats', 'breakdownOneBar', 'breakdownWithHighsOneBar']
 			},
 			upOne: {
+				name: 'upOne',
 				url: 'full_up_one.wav',
 				bars: 1,
 				groups: ['breakdown', 'breakdownUpbeats', 'breakdownOneBar', 'breakdownWithHighsOneBar']
 			},
 			upThree: {
+				name: 'upThree',
 				url: 'full_up_three.wav',
 				bars: 2,
 				groups: ['breakdown', 'breakdownUpbeats']
 			},
 			upThreeDownThree: {
+				name: 'upThreeDownThree',
 				url: 'full_up_three_down_three.wav',
 				bars: 2,
 				groups: ['breakdown', 'breakdownUpbeats']
 			},
 			upThreeFour: {
+				name: 'upThreeFour',
 				url: 'full_up_three_four.wav',
 				bars: 2,
 				groups: ['breakdown', 'breakdownUpbeats']
 			},
 			upThreeUpOne: {
+				name: 'upThreeUpOne',
 				url: 'full_up_three_up_one.wav',
 				bars: 2,
 				groups: ['breakdown', 'breakdownUpbeats']

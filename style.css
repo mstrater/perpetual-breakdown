@@ -1,8 +1,17 @@
 #playPause {
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    display: block;
-    margin: 20px auto 0 auto;
-    cursor: pointer;
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	display: block;
+	margin: 20px auto 0 auto;
+	cursor: pointer;
+}
+
+.breakdownBarDiv {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+}
+.breakdownBarDiv img {
+	height: 100%;
 }

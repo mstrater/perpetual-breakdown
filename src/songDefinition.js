@@ -4,6 +4,8 @@
 	const util = window.app.util;
 
 	const counterpoint = window.app.counterpoint.generate();
+	window.app.ui = {};
+	window.app.ui.counterpoint = counterpoint;
 	const hitCounterpoint = window.app.counterpoint.createHitCounterpoint(counterpoint);
 
 	// Holds the chance to move from one section to the next
@@ -112,15 +114,18 @@
 					},
 					guitar: function(barNumber) {
 						// If we're at the last bar pick a one bar sample to make sure it fits
+						let ret;
 						if (barNumber === 31) {
-							return util.randArrayEntry(songDef.soundGroups.breakdownOneBar);
+							ret =  util.randArrayEntry(songDef.soundGroups.breakdownOneBar);
 						} else if (barNumber % 8 === 0) {
 							// Always have a strong downbeat every 8
-							return util.randArrayEntry(songDef.soundGroups.breakdownDownbeats);
+							ret = util.randArrayEntry(songDef.soundGroups.breakdownDownbeats);
 						} else {
 							// No extras
-							return util.randArrayEntry(songDef.soundGroups.breakdown);
+							ret = util.randArrayEntry(songDef.soundGroups.breakdown);
 						}
+						window.setBreakdownBarImg(ret);
+						return ret;
 					}
 				}
 			},
