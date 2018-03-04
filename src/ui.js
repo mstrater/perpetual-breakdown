@@ -109,10 +109,14 @@ const nameToImgSrc = {
 	downThree: 'src/breakdownSVGs/downThree.svg',
 	four: 'src/breakdownSVGs/four.svg',
 	upOne: 'src/breakdownSVGs/upOne.svg',
-	upThree: 'src/breakdownSVGs/upThree.svg',
-	upThreeDownThree: 'src/breakdownSVGs/upThreeDownThree.svg',
-	upThreeFour: 'src/breakdownSVGs/upThreeFour.svg',
-	upThreeUpOne: 'src/breakdownSVGs/upThreeUpOne.svg'
+	upThree1: 'src/breakdownSVGs/upThree1.svg',
+	upThree2: 'src/breakdownSVGs/upThree2.svg',
+	upThreeDownThree1: 'src/breakdownSVGs/upThreeDownThree1.svg',
+	upThreeDownThree2: 'src/breakdownSVGs/upThreeDownThree2.svg',
+	upThreeFour1: 'src/breakdownSVGs/upThreeFour1.svg',
+	upThreeFour2: 'src/breakdownSVGs/upThreeFour2.svg',
+	upThreeUpOne1: 'src/breakdownSVGs/upThreeUpOne1.svg',
+	upThreeUpOne2: 'src/breakdownSVGs/upThreeUpOne2.svg'
 }
 window.setBreakdownBarImg = (soundObj) => {
 	if (currentBreakdownBar === 0) {
@@ -121,10 +125,14 @@ window.setBreakdownBarImg = (soundObj) => {
 			breakdownImgArray[i].src = 'src/breakdownSVGs/rest.svg';
 		}
 	}
-	breakdownImgArray[currentBreakdownBar].src = nameToImgSrc[soundObj.name];
-	for (let i = 1; i < soundObj.bars; i++) {
-		breakdownImgArray[currentBreakdownBar + i].src = 'src/breakdownSVGs/blank.svg';
+	if (soundObj.bars > 1) {
+		for (let i = 0; i < soundObj.bars; i++) {
+			breakdownImgArray[currentBreakdownBar + i].src = nameToImgSrc[soundObj.name + (i + 1)];
+		}
+	} else {
+		breakdownImgArray[currentBreakdownBar].src = nameToImgSrc[soundObj.name];
 	}
+
 	currentBreakdownBar = (currentBreakdownBar + soundObj.bars)%numDisplayBreakdownBars;
 }
 const breakdownDiv = document.querySelector('#vexFlowBreakdown');
@@ -140,7 +148,19 @@ for (let i = 0; i < numDisplayBreakdownBars; i++) {
 	barDiv.appendChild(barImg);
 	breakdownDiv.appendChild(barDiv);
 
-	//if (i%8 === 7) {
-	//	barDiv.append(document.createElement("br"));
-	//}
+	if (i%16 === 15) {
+		let lineBreak = document.createElement("br");
+		lineBreak.classList.add('sixteenBreak');
+		barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
+	}
+	if (i%8 === 7) {
+		let lineBreak = document.createElement("br");
+		lineBreak.classList.add('eightBreak');
+		barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
+	}
+	if (i%4 === 3) {
+		let lineBreak = document.createElement("br");
+		lineBreak.classList.add('fourBreak');
+		barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
+	}
 }
