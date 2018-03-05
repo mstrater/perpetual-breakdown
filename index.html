@@ -6,8 +6,15 @@
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+	<div id="overview">
+		<h1>Perpetual Breakdown</h1>
+		<table id="stochasticMatrixTable"></table>
+	</div>
 	<div id="breakdown">
+		<h2>Breakdown</h2>
+		<div class="flexContainer">
 		<div id="vexFlowBreakdown"></div>
+		</div>
 	</div>
 	<div id="vexFlowCounterpoint"></div>
 	<button id="playPause">Play / Pause</button>
@@ -15,12 +22,12 @@
 		// setup global namespace
 		window.app = {};
 	</script>
+	<script src="src/vexflow/vexflow-min.js"></script>
+	<script src="src/ui.js"></script>
 	<script src="src/util.js"></script>
 	<script src="src/counterpointGenerator.js"></script>
 	<script src="src/soundsDefinition.js"></script>
 	<script src="src/songDefinition.js"></script>
 	<script src="src/main.js"></script>
-	<script src="src/vexflow/vexflow-min.js"></script>
-	<script src="src/ui.js"></script>
 </body>
 </html>

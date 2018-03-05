@@ -4,8 +4,7 @@
 	const util = window.app.util;
 
 	const counterpoint = window.app.counterpoint.generate();
-	window.app.ui = {};
-	window.app.ui.counterpoint = counterpoint;
+	window.app.ui.renderCounterpoint(counterpoint);
 	const hitCounterpoint = window.app.counterpoint.createHitCounterpoint(counterpoint);
 
 	// Holds the chance to move from one section to the next
@@ -38,6 +37,7 @@
 			hitBridgeSection: 0.1
 		}
 	};
+	window.app.ui.renderStochasticMatrix(sectionTransitionMatrix);
 
 	const checkSectionTransitionMatrix = function() {
 		const keys1 = Object.keys(sectionTransitionMatrix);
@@ -124,7 +124,7 @@
 							// No extras
 							ret = util.randArrayEntry(songDef.soundGroups.breakdown);
 						}
-						window.setBreakdownBarImg(ret);
+						window.app.ui.setBreakdownBarImg(ret);
 						return ret;
 					}
 				}
