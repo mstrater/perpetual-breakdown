@@ -6,10 +6,10 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   id="svg1425"
-   version="1.1"
+   width="100"
    height="100"
-   width="100">
+   version="1.1"
+   id="svg1425">
   <metadata
      id="metadata1431">
     <rdf:RDF>
@@ -30,340 +30,340 @@
 #playPause { width: 100px; height: 50px; text-align: center; display: block; margin: 20px auto 0px; cursor: pointer; }]]></xhtml:style>
   </xhtml:defs>
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
-     id="path1336"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
      d="M -100,40 H 100"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     id="path1336"
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none" />
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
-     id="path1338"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
      d="M -100,50 H 100"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     id="path1338"
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none" />
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
-     id="path1340"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
      d="M -100,60 H 100"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     id="path1340"
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none" />
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
-     id="path1342"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
      d="M -100,70 H 100"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     id="path1342"
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none" />
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
-     id="path1344"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
      d="M -100,80 H 100"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     id="path1344"
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none" />
   <g
-     transform="translate(-100)"
+     class="vf-stavenote"
      id="vf-auto1268"
-     class="vf-stavenote">
+     transform="translate(-106)">
     <g
-       id="g1350"
+       class="vf-note"
        pointer-events="bounding-box"
-       class="vf-note">
+       id="g1350">
       <g
-         id="g1348"
+         class="vf-notehead"
          pointer-events="bounding-box"
-         class="vf-notehead">
+         id="g1348">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1346"
+           font-size="10pt"
+           font-weight="normal"
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
            d="m 17,80 m 2.47104,-8.48016 c 0.1404,0 0.2808,-0.02808 0.4212,-0.02808 1.29168,0 2.47104,0.92664 2.77992,2.21832 0.05616,0.22464 0.08424,0.44928 0.08424,0.702 0,0.73008 -0.25272,1.46016 -0.75816,1.9656 l -0.08424,0.08424 0.19656,-0.02808 c 1.51632,-0.4212 2.86416,-1.76904 3.51,-3.42576 0.02808,-0.1404 0.11232,-0.25272 0.16848,-0.2808 0.11232,-0.16848 0.2808,-0.22464 0.44928,-0.22464 0.30888,0 0.5616,0.22464 0.5616,0.5616 0,0.1404 -4.0716,14.1804 -4.15584,14.3208 -0.11232,0.19656 -0.30888,0.2808 -0.53352,0.2808 -0.22464,0 -0.44928,-0.11232 -0.53352,-0.36504 -0.05616,-0.02808 -0.05616,-0.05616 -0.05616,-0.11232 0,-0.22464 0.25272,-1.01088 1.57248,-5.53176 0.8424,-2.86416 1.5444,-5.22288 1.5444,-5.27904 0,0 0,0 0,0 0,0 -0.11232,0.08424 -0.22464,0.19656 -1.03896,0.78624 -2.27448,1.17936 -3.48192,1.17936 -1.06704,0 -2.106,-0.30888 -2.92032,-0.9828 C 17.2808,76.18112 17,75.3668 17,74.55248 c 0,-1.404 0.89856,-2.75184 2.47104,-3.03264"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
-           font-weight="normal"
-           font-size="10pt" />
+           id="path1346"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
     </g>
     <g
-       id="g1352"
-       class="vf-modifiers" />
+       class="vf-modifiers"
+       id="g1352" />
   </g>
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
+     x="200"
+     y="39.5"
+     width="1"
+     height="41"
+     d="m -54.86828,90 h 18.01824"
      id="path1355"
-     d="m -48.86828,90 h 18.01824"
-     height="41"
-     width="1"
-     y="39.5"
-     x="200"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none" />
   <g
-     transform="translate(-100)"
+     class="vf-stavenote"
      id="vf-auto1274"
-     class="vf-stavenote">
+     transform="translate(-106)">
     <g
-       id="g1365"
+       class="vf-note"
        pointer-events="bounding-box"
-       class="vf-note">
+       id="g1365">
       <g
-         id="g1359"
+         class="vf-notehead"
          pointer-events="bounding-box"
-         class="vf-notehead">
+         id="g1359">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1357"
+           font-size="10pt"
+           font-weight="normal"
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
            d="m 54.13172,90 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.02808,0 0.02808,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
-           font-weight="normal"
-           font-size="10pt" />
+           id="path1357"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
       <g
-         id="g1363"
+         class="vf-notehead"
          pointer-events="bounding-box"
-         class="vf-notehead">
+         id="g1363">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1361"
+           font-size="10pt"
+           font-weight="normal"
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
            d="m 54.13172,70 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.02808,0 0.02808,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
-           font-weight="normal"
-           font-size="10pt" />
+           id="path1361"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
     </g>
     <g
-       id="g1367"
-       class="vf-modifiers" />
+       class="vf-modifiers"
+       id="g1367" />
   </g>
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
+     x="200"
+     y="39.5"
+     width="1"
+     height="41"
+     d="M -26.18414,90 H -8.1659"
      id="path1370"
-     d="M -20.18414,90 H -2.1659"
-     height="41"
-     width="1"
-     y="39.5"
-     x="200"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none" />
   <g
-     transform="translate(-100)"
+     class="vf-stavenote"
      id="vf-auto1285"
-     class="vf-stavenote">
+     transform="translate(-106)">
     <g
-       id="g1380"
+       class="vf-note"
        pointer-events="bounding-box"
-       class="vf-note">
+       id="g1380">
       <g
-         id="g1374"
+         class="vf-notehead"
          pointer-events="bounding-box"
-         class="vf-notehead">
+         id="g1374">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1372"
+           font-size="10pt"
+           font-weight="normal"
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
            d="m 82.81586,90 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.02808,0 0.02808,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
-           font-weight="normal"
-           font-size="10pt" />
+           id="path1372"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
       <g
-         id="g1378"
+         class="vf-notehead"
          pointer-events="bounding-box"
-         class="vf-notehead">
+         id="g1378">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1376"
+           font-size="10pt"
+           font-weight="normal"
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
            d="m 82.81586,70 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.02808,0 0.02808,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
-           font-weight="normal"
-           font-size="10pt" />
+           id="path1376"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
     </g>
     <g
-       id="g1382"
-       class="vf-modifiers" />
+       class="vf-modifiers"
+       id="g1382" />
   </g>
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
+     x="200"
+     y="39.5"
+     width="1"
+     height="41"
+     d="M 16.5,90 H 34.51824"
      id="path1385"
-     d="M 8.5,90 H 26.51824"
-     height="41"
-     width="1"
-     y="39.5"
-     x="200"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none" />
   <g
-     transform="translate(-100)"
+     class="vf-stavenote"
      id="vf-auto1297"
-     class="vf-stavenote">
+     transform="translate(-92)">
     <g
-       id="g1403"
+       class="vf-note"
        pointer-events="bounding-box"
-       class="vf-note">
+       id="g1403">
       <g
-         id="g1389"
+         class="vf-stem"
          pointer-events="bounding-box"
-         class="vf-stem">
+         id="g1389">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
-           id="path1387"
+           font-size="10pt"
+           font-weight="normal"
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
            d="M 122.76824,90 V 35"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
-           font-weight="normal"
-           font-size="10pt" />
+           id="path1387"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none" />
       </g>
       <g
-         id="g1393"
+         class="vf-notehead"
          pointer-events="bounding-box"
-         class="vf-notehead">
+         id="g1393">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1391"
+           font-size="10pt"
+           font-weight="normal"
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
            d="m 111.5,90 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
-           font-weight="normal"
-           font-size="10pt" />
+           id="path1391"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
       <g
-         id="g1397"
+         class="vf-notehead"
          pointer-events="bounding-box"
-         class="vf-notehead">
+         id="g1397">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1395"
+           font-size="10pt"
+           font-weight="normal"
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
            d="m 111.5,70 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
-           font-weight="normal"
-           font-size="10pt" />
+           id="path1395"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
       <g
-         id="g1401"
+         class="vf-flag"
          pointer-events="bounding-box"
-         class="vf-flag">
+         id="g1401">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1399"
-           d="m 122.76824,33 m -0.67392,4.52088 V 33.1404 h 0.11232 c 0.30888,0 0.50544,0.19656 0.5616,0.53352 0.58968,2.808 2.35872,5.86872 4.80168,8.17128 2.72376,2.55528 4.09968,6.06528 4.09968,9.6876 0,3.42576 -1.20744,6.99192 -3.6504,9.94032 -0.4212,0.5616 -0.44928,0.5616 -0.73008,0.5616 -0.33696,0 -0.5616,-0.25272 -0.5616,-0.58968 0,-0.25272 0.0281,-0.30888 0.30888,-0.61776 2.13408,-2.58336 3.20112,-5.70024 3.20112,-8.67672 0,-2.63952 -0.8424,-5.16672 -2.58336,-7.07616 -1.06704,-1.17936 -3.03264,-2.30256 -5.53176,-3.17304 0,-0.02808 -0.0281,-0.89856 -0.0281,-4.38048"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
+           font-size="10pt"
            font-weight="normal"
-           font-size="10pt" />
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
+           d="m 122.76824,33 m -0.67392,4.52088 V 33.1404 h 0.11232 c 0.30888,0 0.50544,0.19656 0.5616,0.53352 0.58968,2.808 2.35872,5.86872 4.80168,8.17128 2.72376,2.55528 4.09968,6.06528 4.09968,9.6876 0,3.42576 -1.20744,6.99192 -3.6504,9.94032 -0.4212,0.5616 -0.44928,0.5616 -0.73008,0.5616 -0.33696,0 -0.5616,-0.25272 -0.5616,-0.58968 0,-0.25272 0.0281,-0.30888 0.30888,-0.61776 2.13408,-2.58336 3.20112,-5.70024 3.20112,-8.67672 0,-2.63952 -0.8424,-5.16672 -2.58336,-7.07616 -1.06704,-1.17936 -3.03264,-2.30256 -5.53176,-3.17304 0,-0.02808 -0.0281,-0.89856 -0.0281,-4.38048"
+           id="path1399"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
     </g>
     <g
-       id="g1405"
-       class="vf-modifiers" />
+       class="vf-modifiers"
+       id="g1405" />
   </g>
   <g
-     transform="translate(-100)"
+     class="vf-stavenote"
      id="vf-auto1308"
-     class="vf-stavenote">
+     transform="translate(-92)">
     <g
-       id="g1412"
+       class="vf-note"
        pointer-events="bounding-box"
-       class="vf-note">
+       id="g1412">
       <g
-         id="g1410"
+         class="vf-notehead"
          pointer-events="bounding-box"
-         class="vf-notehead">
+         id="g1410">
         <path
-           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-           id="path1408"
-           d="m 162.86828,80 m 2.47104,-8.48016 c 0.1404,0 0.2808,-0.02808 0.4212,-0.02808 1.29168,0 2.47104,0.92664 2.77992,2.21832 0.0562,0.22464 0.0842,0.44928 0.0842,0.702 0,0.73008 -0.25272,1.46016 -0.75816,1.9656 l -0.0842,0.08424 0.19656,-0.02808 c 1.51632,-0.4212 2.86416,-1.76904 3.51,-3.42576 0.0281,-0.1404 0.11232,-0.25272 0.16848,-0.2808 0.11232,-0.16848 0.2808,-0.22464 0.44928,-0.22464 0.30888,0 0.5616,0.22464 0.5616,0.5616 0,0.1404 -4.0716,14.1804 -4.15584,14.3208 -0.11232,0.19656 -0.30888,0.2808 -0.53352,0.2808 -0.22464,0 -0.44928,-0.11232 -0.53352,-0.36504 -0.0562,-0.02808 -0.0562,-0.05616 -0.0562,-0.11232 0,-0.22464 0.25272,-1.01088 1.57248,-5.53176 0.8424,-2.86416 1.5444,-5.22288 1.5444,-5.27904 0,0 0,0 0,0 0,0 -0.11232,0.08424 -0.22464,0.19656 -1.03896,0.78624 -2.27448,1.17936 -3.48192,1.17936 -1.06704,0 -2.106,-0.30888 -2.92032,-0.9828 -0.73008,-0.58968 -1.01088,-1.404 -1.01088,-2.21832 0,-1.404 0.89856,-2.75184 2.47104,-3.03264"
-           height="41"
-           width="1"
-           y="39.5"
-           x="200"
-           font-style="normal"
+           font-size="10pt"
            font-weight="normal"
-           font-size="10pt" />
+           font-style="normal"
+           x="200"
+           y="39.5"
+           width="1"
+           height="41"
+           d="m 162.86828,80 m 2.47104,-8.48016 c 0.1404,0 0.2808,-0.02808 0.4212,-0.02808 1.29168,0 2.47104,0.92664 2.77992,2.21832 0.0562,0.22464 0.0842,0.44928 0.0842,0.702 0,0.73008 -0.25272,1.46016 -0.75816,1.9656 l -0.0842,0.08424 0.19656,-0.02808 c 1.51632,-0.4212 2.86416,-1.76904 3.51,-3.42576 0.0281,-0.1404 0.11232,-0.25272 0.16848,-0.2808 0.11232,-0.16848 0.2808,-0.22464 0.44928,-0.22464 0.30888,0 0.5616,0.22464 0.5616,0.5616 0,0.1404 -4.0716,14.1804 -4.15584,14.3208 -0.11232,0.19656 -0.30888,0.2808 -0.53352,0.2808 -0.22464,0 -0.44928,-0.11232 -0.53352,-0.36504 -0.0562,-0.02808 -0.0562,-0.05616 -0.0562,-0.11232 0,-0.22464 0.25272,-1.01088 1.57248,-5.53176 0.8424,-2.86416 1.5444,-5.22288 1.5444,-5.27904 0,0 0,0 0,0 0,0 -0.11232,0.08424 -0.22464,0.19656 -1.03896,0.78624 -2.27448,1.17936 -3.48192,1.17936 -1.06704,0 -2.106,-0.30888 -2.92032,-0.9828 -0.73008,-0.58968 -1.01088,-1.404 -1.01088,-2.21832 0,-1.404 0.89856,-2.75184 2.47104,-3.03264"
+           id="path1408"
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
       </g>
     </g>
     <g
-       id="g1414"
-       class="vf-modifiers" />
+       class="vf-modifiers"
+       id="g1414" />
   </g>
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
+     x="200"
+     y="39.5"
+     width="1"
+     height="41"
+     d="M -40.60004,90 V 35.75"
      id="path1417"
-     d="M -34.60004,90 V 35.75"
-     height="41"
-     width="1"
-     y="39.5"
-     x="200"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none" />
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
+     x="200"
+     y="39.5"
+     width="1"
+     height="41"
+     d="M -11.9159,90 V 35.75"
      id="path1419"
-     d="M -5.9159,90 V 35.75"
-     height="41"
-     width="1"
-     y="39.5"
-     x="200"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none" />
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+     font-size="10pt"
+     font-weight="normal"
+     font-style="normal"
+     x="200"
+     y="39.5"
+     width="1"
+     height="41"
+     d="m -41.35004,35 v 5 h 29.68414 v -5 z"
      id="path1421"
-     d="m -35.35004,35 v 5 H -5.6659 v -5 z"
-     height="41"
-     width="1"
-     y="39.5"
-     x="200"
-     font-style="normal"
-     font-weight="normal"
-     font-size="10pt" />
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
   <path
-     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
-     id="path1423"
-     d="m -35.35004,42.5 v 5 H -5.6659 v -5 z"
-     height="41"
-     width="1"
-     y="39.5"
-     x="200"
-     font-style="normal"
+     font-size="10pt"
      font-weight="normal"
-     font-size="10pt" />
+     font-style="normal"
+     x="200"
+     y="39.5"
+     width="1"
+     height="41"
+     d="m -41.35004,42.5 v 5 h 29.68414 v -5 z"
+     id="path1423"
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none" />
 </svg>

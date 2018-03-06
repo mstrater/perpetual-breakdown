@@ -66,54 +66,53 @@ window.app.ui = {};
 // Breakdown UI code
 (() => {
 	// Initialization code
-	(() => {
-		const numDisplayBreakdownBars = 32;
-		let currentBreakdownBar = 0;
-		let breakdownImgArray = [];
-		const nameToImgSrc = {
-			downOne: 'src/breakdownSVGs/downOne.svg',
-			downThree: 'src/breakdownSVGs/downThree.svg',
-			four: 'src/breakdownSVGs/four.svg',
-			upOne: 'src/breakdownSVGs/upOne.svg',
-			upThree1: 'src/breakdownSVGs/upThree1.svg',
-			upThree2: 'src/breakdownSVGs/upThree2.svg',
-			upThreeDownThree1: 'src/breakdownSVGs/upThreeDownThree1.svg',
-			upThreeDownThree2: 'src/breakdownSVGs/upThreeDownThree2.svg',
-			upThreeFour1: 'src/breakdownSVGs/upThreeFour1.svg',
-			upThreeFour2: 'src/breakdownSVGs/upThreeFour2.svg',
-			upThreeUpOne1: 'src/breakdownSVGs/upThreeUpOne1.svg',
-			upThreeUpOne2: 'src/breakdownSVGs/upThreeUpOne2.svg'
+	const numDisplayBreakdownBars = 32;
+	let currentBreakdownBar = 0;
+	let breakdownImgArray = [];
+	const nameToImgSrc = {
+		downOne: 'src/breakdownSVGs/downOne.svg',
+		downThree: 'src/breakdownSVGs/downThree.svg',
+		four: 'src/breakdownSVGs/four.svg',
+		upOne: 'src/breakdownSVGs/upOne.svg',
+		upThree1: 'src/breakdownSVGs/upThree1.svg',
+		upThree2: 'src/breakdownSVGs/upThree2.svg',
+		upThreeDownThree1: 'src/breakdownSVGs/upThreeDownThree1.svg',
+		upThreeDownThree2: 'src/breakdownSVGs/upThreeDownThree2.svg',
+		upThreeFour1: 'src/breakdownSVGs/upThreeFour1.svg',
+		upThreeFour2: 'src/breakdownSVGs/upThreeFour2.svg',
+		upThreeUpOne1: 'src/breakdownSVGs/upThreeUpOne1.svg',
+		upThreeUpOne2: 'src/breakdownSVGs/upThreeUpOne2.svg'
+	}
+	const breakdownDiv = document.querySelector('#vexFlowBreakdown');
+
+	for (let i = 0; i < numDisplayBreakdownBars; i++) {
+		let barDiv = document.createElement('div');
+		barDiv.classList.add('breakdownBarDiv');
+
+		let barImg = document.createElement('img');
+		barImg.src = 'src/breakdownSVGs/rest.svg';
+		breakdownImgArray.push(barImg);
+
+		barDiv.appendChild(barImg);
+		breakdownDiv.appendChild(barDiv);
+
+		if (i%16 === 15) {
+			let lineBreak = document.createElement('br');
+			lineBreak.classList.add('sixteenBreak');
+			barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
 		}
-		const breakdownDiv = document.querySelector('#vexFlowBreakdown');
-
-		for (let i = 0; i < numDisplayBreakdownBars; i++) {
-			let barDiv = document.createElement('div');
-			barDiv.classList.add('breakdownBarDiv');
-
-			let barImg = document.createElement('img');
-			barImg.src = 'src/breakdownSVGs/rest.svg';
-			breakdownImgArray.push(barImg);
-
-			barDiv.appendChild(barImg);
-			breakdownDiv.appendChild(barDiv);
-
-			if (i%16 === 15) {
-				let lineBreak = document.createElement('br');
-				lineBreak.classList.add('sixteenBreak');
-				barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
-			}
-			if (i%8 === 7) {
-				let lineBreak = document.createElement('br');
-				lineBreak.classList.add('eightBreak');
-				barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
-			}
-			if (i%4 === 3) {
-				let lineBreak = document.createElement('br');
-				lineBreak.classList.add('fourBreak');
-				barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
-			}
+		if (i%8 === 7) {
+			let lineBreak = document.createElement('br');
+			lineBreak.classList.add('eightBreak');
+			barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
 		}
-	})();
+		if (i%4 === 3) {
+			let lineBreak = document.createElement('br');
+			lineBreak.classList.add('fourBreak');
+			barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
+		}
+	}
+	// End Initialization code
 
 	window.app.ui.setBreakdownBarImg = (soundObj) => {
 		if (currentBreakdownBar === 0) {
