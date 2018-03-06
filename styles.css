@@ -9,11 +9,13 @@ html, body {
 }
 
 #playPause {
+	position: fixed;
+	top: 0;
+	left: 0;
+
 	width: 100px;
 	height: 50px;
 	text-align: center;
-	display: block;
-	margin: 20px auto 0 auto;
 	cursor: pointer;
 }
 
@@ -42,6 +44,10 @@ table, th, td {
 }
 .breakdownBarDiv img {
 	height: 100%;
+}
+
+#temporary {
+	display: none;
 }
 
 @media all and (min-width: 1650px) {
