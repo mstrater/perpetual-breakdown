@@ -207,9 +207,9 @@ window.app.ui = {};
 (() => {
 	document.querySelector('#temporary').style.display = 'block';
 	document.querySelector('#container').style.display = 'none';
-	
+
 	const VF = Vex.Flow;
-	// Create an SVG renderer and attach it to the DIV element named 'vexFlowTemp'.
+	// Create an SVG renderer and attach it to the DIV element named 'vexFlowTemp'
 	const vf = new VF.Factory({renderer: {elementId: 'vexFlowTemp'}});
 	const score = vf.EasyScore();
 	const makeSystem = (width) => {
@@ -226,10 +226,15 @@ window.app.ui = {};
 	system.addStave({
 		voices: [
 			voice([
-				notes('E4/8/r, E4/8/r'),
-				//beam(notes('(C4 G4)/16, (C4 G4)/16'))
+				//notes('(C6 E6)/q, (C#6 En6)/q'),
+				//beam(notes('(C4 G4)/16, (C4 G4)/16')),
+				//notes('(C5 Db5)/8, E4/8/r'),
+				notes('(E5 Fb5)/8, E4/8/r')
+				//beam(notes('(C4 G4)/16, (C4 G4)/16')),
+				//beam(notes('(C4 G4)/8, (C4 G4)/8')),
+				//notes('E4/16/r')
 			].reduce(concat))
 		]
 	});
 	vf.draw();
-})/*()*/;
+});

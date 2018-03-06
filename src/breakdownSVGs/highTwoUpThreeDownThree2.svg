@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg2230"
+   version="1.1"
+   height="100"
+   width="100">
+  <metadata
+     id="metadata2236">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2234" />
+  <xhtml:defs>
+    <xhtml:style
+       type="text/css"><![CDATA[
+* { box-sizing: border-box; }
+html, body { margin: 0px; padding: 0px; min-width: 450px; }
+#playPause { position: fixed; top: 0px; left: 0px; width: 100px; height: 50px; text-align: center; cursor: pointer; }
+#vexFlowBreakdown { line-height: 0; border-left: 1px solid rgb(153, 153, 153); border-top: 1px solid rgb(153, 153, 153); }
+.flexContainer { display: flex; justify-content: center; }
+table, th, td { border: 1px solid black; border-collapse: collapse; }
+.breakdownBarDiv { width: 101px; height: 100px; display: inline-block; border-right: 1px solid rgb(153, 153, 153); border-bottom: 1px solid rgb(153, 153, 153); }
+.breakdownBarDiv img { height: 100%; }
+#temporary { display: none; }]]></xhtml:style>
+  </xhtml:defs>
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2095"
+     d="M -100,40 H 100"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2097"
+     d="M -100,50 H 100"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2099"
+     d="M -100,60 H 100"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2101"
+     d="M -100,70 H 100"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2103"
+     d="M -100,80 H 100"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <g
+     transform="translate(-100)"
+     id="vf-auto1001"
+     class="vf-stavenote">
+    <g
+       id="g2121"
+       pointer-events="bounding-box"
+       class="vf-note">
+      <g
+         id="g2107"
+         pointer-events="bounding-box"
+         class="vf-stem">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
+           id="path2105"
+           d="M 53.2284,40 V 80"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+      <g
+         id="g2111"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2109"
+           d="m 41.21016,45 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.02808,0 0.02808,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+      <g
+         id="g2115"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2113"
+           d="m 52.4784,40 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.02808,0 0.02808,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+      <g
+         id="g2119"
+         pointer-events="bounding-box"
+         class="vf-flag">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2117"
+           d="m 53.2284,82 m 6.4584,-28.95048 c 0.05616,-0.02808 0.1404,-0.02808 0.22464,-0.02808 0.19656,0 0.36504,0.1404 0.58968,0.50544 1.99368,3.03264 3.03264,6.51456 3.03264,9.88416 0,0.58968 0,1.15128 -0.08424,1.6848 -0.33696,3.20112 -1.6848,6.12144 -3.70656,8.0028 -2.16216,2.02176 -3.62232,3.6504 -4.914,5.53176 -0.73008,1.01088 -1.43208,2.2464 -1.62864,2.86416 -0.08424,0.19656 -0.30888,0.39312 -0.50544,0.39312 h -0.05616 v -4.3524 -4.38048 h 0.1404 c 0.73008,0 2.19024,-0.25272 3.14496,-0.5616 3.67848,-1.2636 6.14952,-5.39136 6.14952,-10.1088 0,-0.39312 -0.02808,-0.81432 -0.05616,-1.20744 -0.25272,-2.44296 -1.1232,-4.99824 -2.49912,-7.10424 -0.1404,-0.22464 -0.22464,-0.44928 -0.22464,-0.61776 0,-0.22464 0.11232,-0.4212 0.39312,-0.50544"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+    </g>
+    <g
+       id="g2125"
+       class="vf-modifiers">
+      <path
+         style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+         id="path2123"
+         d="M 30.5928,40 M 30.37392,22.73584 c 0.05472,-0.02736 0.10944,-0.02736 0.19152,-0.02736 0.24624,0 0.46512,0.10944 0.5472,0.32832 C 31.14,23.14624 31.14,23.14624 31.14,29.52112 v 6.4296 l 0.02736,-0.08208 c 1.03968,-0.87552 2.13408,-1.31328 3.17376,-1.31328 0.4104,0 0.8208,0.05472 1.2312,0.21888 1.2312,0.4104 1.88784,1.55952 1.88784,2.92752 0,0.71136 -0.21888,1.5048 -0.62928,2.29824 -0.60192,1.0944 -1.368,1.96992 -3.50208,3.88512 l -2.10672,1.99728 c -0.38304,0.38304 -0.46512,0.38304 -0.62928,0.38304 -0.24624,0 -0.46512,-0.1368 -0.5472,-0.35568 L 30.01824,45.80032 V 34.50064 23.14624 L 30.0456,23.0368 c 0.08208,-0.10944 0.19152,-0.2736 0.32832,-0.30096 m 3.22848,13.68 c -0.10944,-0.05472 -0.2736,-0.05472 -0.38304,-0.05472 -0.08208,0 -0.1368,0 -0.19152,0 -0.71136,0.10944 -1.34064,0.5472 -1.7784,1.25856 L 31.14,37.8112 v 3.20112 3.25584 l 0.08208,-0.10944 c 1.99728,-2.1888 3.31056,-4.70592 3.31056,-6.37488 v -0.05472 c 0,-0.8208 -0.2736,-1.17648 -0.93024,-1.31328"
+         height="41"
+         width="1"
+         y="39.5"
+         x="200"
+         font-style="normal"
+         font-weight="normal"
+         font-size="10pt" />
+    </g>
+  </g>
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2128"
+     d="M -27.30932,90 H -9.29108"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <g
+     transform="translate(-100)"
+     id="vf-auto1016"
+     class="vf-stavenote">
+    <g
+       id="g2138"
+       pointer-events="bounding-box"
+       class="vf-note">
+      <g
+         id="g2132"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2130"
+           d="m 75.69068,90 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.02808,0 0.02808,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+      <g
+         id="g2136"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2134"
+           d="m 75.69068,70 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.02808,0 0.02808,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+    </g>
+    <g
+       id="g2140"
+       class="vf-modifiers" />
+  </g>
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2143"
+     d="M -6.69406,90 H 11.32418"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <g
+     transform="translate(-100)"
+     id="vf-auto1027"
+     class="vf-stavenote">
+    <g
+       id="g2153"
+       pointer-events="bounding-box"
+       class="vf-note">
+      <g
+         id="g2147"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2145"
+           d="m 96.30594,90 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+      <g
+         id="g2151"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2149"
+           d="m 96.30594,70 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+    </g>
+    <g
+       id="g2155"
+       class="vf-modifiers" />
+  </g>
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2158"
+     d="M 13.9212,90 H 31.93944"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <g
+     transform="translate(-100)"
+     id="vf-auto1039"
+     class="vf-stavenote">
+    <g
+       id="g2168"
+       pointer-events="bounding-box"
+       class="vf-note">
+      <g
+         id="g2162"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2160"
+           d="m 116.9212,90 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+      <g
+         id="g2166"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2164"
+           d="m 116.9212,70 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+    </g>
+    <g
+       id="g2170"
+       class="vf-modifiers" />
+  </g>
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2173"
+     d="M 34.53646,90 H 52.5547"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <g
+     transform="translate(-100)"
+     id="vf-auto1050"
+     class="vf-stavenote">
+    <g
+       id="g2183"
+       pointer-events="bounding-box"
+       class="vf-note">
+      <g
+         id="g2177"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2175"
+           d="m 137.53646,90 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+      <g
+         id="g2181"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2179"
+           d="m 137.53646,70 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+    </g>
+    <g
+       id="g2185"
+       class="vf-modifiers" />
+  </g>
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#999999;stroke-width:1;stroke-dasharray:none"
+     id="path2188"
+     d="M 55.15172,90 H 73.16996"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <g
+     transform="translate(-100)"
+     id="vf-auto1061"
+     class="vf-stavenote">
+    <g
+       id="g2198"
+       pointer-events="bounding-box"
+       class="vf-note">
+      <g
+         id="g2192"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2190"
+           d="m 158.15172,90 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+      <g
+         id="g2196"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2194"
+           d="m 158.15172,70 m 7.35696,-5.22288 c 0.11232,0 0.2808,0 0.30888,0 0,0 0.0281,0 0.0281,0 0,0 0.16848,0 0.30888,0 2.5272,0.1404 4.01544,1.79712 4.01544,3.87504 0,1.01088 -0.33696,2.16216 -1.17936,3.25728 -1.60056,2.16216 -4.212,3.34152 -6.48648,3.34152 -1.76904,0 -3.28536,-0.702 -4.01544,-2.13408 -0.22464,-0.5616 -0.33696,-1.09512 -0.33696,-1.6848 0,-3.06072 3.42576,-6.4584 7.35696,-6.65496"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+    </g>
+    <g
+       id="g2200"
+       class="vf-modifiers" />
+  </g>
+  <g
+     transform="translate(-100)"
+     id="vf-auto1073"
+     class="vf-stavenote">
+    <g
+       id="g2207"
+       pointer-events="bounding-box"
+       class="vf-note">
+      <g
+         id="g2205"
+         pointer-events="bounding-box"
+         class="vf-notehead">
+        <path
+           style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+           id="path2203"
+           d="m 178.76698,80 m 5.30712,-8.48016 c 0.11232,0 0.25272,-0.02808 0.4212,-0.02808 1.29168,0 2.47104,0.92664 2.77992,2.21832 0.0281,0.22464 0.0842,0.44928 0.0842,0.702 0,0.73008 -0.2808,1.46016 -0.75816,1.9656 l -0.0842,0.08424 0.1404,-0.02808 c 1.57248,-0.4212 2.92032,-1.76904 3.56616,-3.42576 0.0281,-0.1404 0.11232,-0.25272 0.11232,-0.2808 0.1404,-0.16848 0.30888,-0.22464 0.50544,-0.22464 0.30888,0 0.5616,0.22464 0.5616,0.5616 0,0.1404 -6.90768,23.75568 -7.02,23.92416 -0.0842,0.19656 -0.2808,0.30888 -0.50544,0.30888 -0.22464,0 -0.44928,-0.16848 -0.53352,-0.39312 -0.0562,-0.02808 -0.0562,-0.02808 -0.0562,-0.11232 0,-0.25272 0.25272,-1.01088 1.57248,-5.50368 0.8424,-2.92032 1.5444,-5.30712 1.5444,-5.30712 0,0 0,0 0,0 0,0 -0.11232,0.08424 -0.22464,0.16848 -1.03896,0.78624 -2.30256,1.20744 -3.48192,1.20744 -1.06704,0 -2.106,-0.36504 -2.92032,-1.01088 -0.67392,-0.5616 -1.01088,-1.404 -1.01088,-2.27448 0,-0.58968 0.1404,-1.15128 0.47736,-1.71288 0.58968,-0.8424 1.48824,-1.29168 2.41488,-1.29168 0.95472,0 1.93752,0.50544 2.47104,1.48824 0.2808,0.4212 0.39312,0.92664 0.39312,1.404 0,0.73008 -0.25272,1.48824 -0.75816,1.99368 l -0.0842,0.08424 0.19656,-0.05616 c 1.51632,-0.4212 2.86416,-1.74096 3.51,-3.3696 0.0281,-0.1404 1.8252,-6.1776 1.8252,-6.23376 0,0 0,0 0,0 0,0 -0.11232,0.08424 -0.22464,0.19656 -1.01088,0.78624 -2.27448,1.17936 -3.48192,1.17936 -1.06704,0 -2.07792,-0.30888 -2.89224,-0.9828 -0.73008,-0.58968 -1.06704,-1.404 -1.06704,-2.21832 0,-1.404 0.95472,-2.75184 2.5272,-3.03264"
+           height="41"
+           width="1"
+           y="39.5"
+           x="200"
+           font-style="normal"
+           font-weight="normal"
+           font-size="10pt" />
+      </g>
+    </g>
+    <g
+       id="g2209"
+       class="vf-modifiers" />
+  </g>
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
+     id="path2212"
+     d="M -13.04108,90 V 35.75"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
+     id="path2214"
+     d="M 7.57418,90 V 35.75"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+     id="path2216"
+     d="m -13.79108,35 v 5 H 7.82418 v -5 z"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+     id="path2218"
+     d="m -13.79108,42.5 v 5 H 7.82418 v -5 z"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
+     id="path2220"
+     d="M 28.18944,90 V 35.75"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
+     id="path2222"
+     d="M 48.8047,90 V 35.75"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:none"
+     id="path2224"
+     d="M 69.41996,90 V 35.75"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+     id="path2226"
+     d="m 27.43944,35 v 5 h 42.23052 v -5 z"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+  <path
+     style="font-style:normal;font-weight:normal;font-size:13.33333302px;font-family:Arial;fill:#000000;stroke:none;stroke-width:0.30000001;stroke-dasharray:none"
+     id="path2228"
+     d="m 27.43944,42.5 v 5 h 42.23052 v -5 z"
+     height="41"
+     width="1"
+     y="39.5"
+     x="200"
+     font-style="normal"
+     font-weight="normal"
+     font-size="10pt" />
+</svg>
