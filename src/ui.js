@@ -83,7 +83,7 @@ window.app.ui = {};
 		upThreeUpOne1: 'src/breakdownSVGs/upThreeUpOne1.svg',
 		upThreeUpOne2: 'src/breakdownSVGs/upThreeUpOne2.svg'
 	}
-	const breakdownDiv = document.querySelector('#vexFlowBreakdown');
+	const breakdownDiv = document.querySelector('#breakdownNotation');
 
 	for (let i = 0; i < numDisplayBreakdownBars; i++) {
 		let barDiv = document.createElement('div');
@@ -111,6 +111,16 @@ window.app.ui = {};
 			lineBreak.classList.add('fourBreak');
 			barDiv.parentNode.insertBefore(lineBreak, barDiv.nextSibling);
 		}
+	}
+
+	// Create key signature imgs
+	const keySignatureDiv = document.querySelector('#breakdown .keySignature');
+	for (let i=0; i < 8; i++) {
+		let keySignatureImgDiv = document.createElement('div');
+		let keySignatureImg = document.createElement('img');
+		keySignatureImg.src = 'src/breakdownSVGs/keySignature.svg';
+		keySignatureImgDiv.appendChild(keySignatureImg);
+		keySignatureDiv.appendChild(keySignatureImgDiv);
 	}
 	// End Initialization code
 

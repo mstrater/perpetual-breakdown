@@ -5,7 +5,7 @@
 html, body {
 	margin: 0;
 	padding: 0;
-	min-width: 450px;
+	min-width: 460px;
 }
 
 #playPause {
@@ -19,12 +19,6 @@ html, body {
 	cursor: pointer;
 }
 
-#vexFlowBreakdown {
-	line-height: 0;
-	border-left: 1px solid #999999;
-	border-top: 1px solid #999999;
-}
-
 .flexContainer {
 	display: flex;
 	justify-content: center;
@@ -35,12 +29,33 @@ table, th, td {
 	border-collapse: collapse;
 }
 
-.breakdownBarDiv {
-	width: 101px;
+#breakdown .keySignature {
+	overflow: hidden;
+	float: left;
+	border-bottom: 1px solid #999999;
+}
+#breakdown .keySignature div {
+	width: 50px;
 	height: 100px;
-	display: inline-block;
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
+}
+#breakdown .keySignature img {
+	height: 100%;
+}
+#breakdownNotation {
+	line-height: 0;
+	float: left;
 	border-right: 1px solid #999999;
 	border-bottom: 1px solid #999999;
+}
+
+.breakdownBarDiv {
+	width: 100px;
+	height: 100px;
+	float: left;
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
 }
 .breakdownBarDiv img {
 	height: 100%;
@@ -50,7 +65,10 @@ table, th, td {
 	display: none;
 }
 
-@media all and (min-width: 1650px) {
+@media all and (min-width: 1660px) {
+	.keySignature, #breakdownNotation {
+		height: 200px;
+	}
 	.fourBreak {
 		display: none;
 	}
@@ -60,7 +78,10 @@ table, th, td {
 }
 
 
-@media all and (min-width: 850px) and (max-width: 1649px) {
+@media all and (min-width: 860px) and (max-width: 1659px) {
+	.keySignature, #breakdownNotation {
+		height: 400px;
+	}
 	.fourBreak {
 		display: none;
 	}
@@ -69,7 +90,10 @@ table, th, td {
 	}
 }
 
-@media all and (max-width: 849px){
+@media all and (max-width: 859px){
+	.keySignature, #breakdownNotation {
+		height: 800px;
+	}
 	.eightBreak {
 		display: none;
 	}
