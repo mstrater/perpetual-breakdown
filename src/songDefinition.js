@@ -6,6 +6,7 @@
 	const counterpoint = window.app.counterpoint.generate();
 	window.app.ui.renderCounterpoint(counterpoint);
 	const hitCounterpoint = window.app.counterpoint.createHitCounterpoint(counterpoint);
+	window.app.ui.renderChromaticCounterpointBridge(hitCounterpoint);
 
 	// Holds the chance to move from one section to the next
 	// For example sectionTransitionMatrix.crashBreakdown.openHatBreakdown represents the chance to move

@@ -144,72 +144,121 @@ window.app.ui = {};
 })();
 
 // Counterpoint UI code
+// AND
+// Chromatic Counterpoint Bridge UI code
 (() => {
-	window.app.ui.renderCounterpoint = (counterpointObj) => {
-		const counterpointToVexflowStrings = (counterpoint) => {
-			const counterpointNumToNoteStr = {
-				0: 'C2',
-				1: 'D3',
-				2: 'E3',
-				3: 'F3',
-				4: 'G3',
-				5: 'A3',
-				6: 'B3',
-				6.5: 'Bn3',
-				7: 'C4',
-				8: 'D4',
-				9: 'E4',
-				10: 'F4',
-				11: 'G4',
-				12: 'A4',
-				13: 'B4',
-				13.5: 'Bn4',
-				14: 'C5',
-				15: 'D5',
-				16: 'E5',
-				17: 'F5',
-				18: 'G5',
-				19: 'A5',
-				20: 'B5',
-				20.5: 'Bn5',
-				21: 'C6'
-			};
-			let lowString = '';
-			let highString = '';
-			console.assert(counterpoint.lowArray.length === counterpoint.highArray.length);
-			for (let i=0; i<counterpoint.lowArray.length; i++) {
-				lowString += counterpointNumToNoteStr[counterpoint.lowArray[i]];
-				highString += counterpointNumToNoteStr[counterpoint.highArray[i]];
-				if (i === 0) {
-					lowString+='/q';
-					highString+='/q';
+	const renderCounterpointsHelper = (numToNoteObj, renderDivId, showKeySignature = true) => {
+		return (counterpointObj) => {
+			const counterpointToVexflowStrings = (counterpoint) => {
+				const counterpointNumToNoteStr = numToNoteObj;
+				let lowString = '';
+				let highString = '';
+				console.assert(counterpoint.lowArray.length === counterpoint.highArray.length);
+				for (let i=0; i<counterpoint.lowArray.length; i++) {
+					lowString += counterpointNumToNoteStr[counterpoint.lowArray[i]];
+					highString += counterpointNumToNoteStr[counterpoint.highArray[i]];
+					if (i === 0) {
+						lowString+='/q';
+						highString+='/q';
+					}
+					if (i != counterpoint.lowArray.length - 1) {
+						lowString += ', ';
+						highString += ', ';
+					}
 				}
-				if (i != counterpoint.lowArray.length - 1) {
-					lowString += ', ';
-					highString += ', ';
-				}
+				return {lowString: lowString, highString: highString}
 			}
-			return {lowString: lowString, highString: highString}
-		}
-		let counterpointStrings = counterpointToVexflowStrings(counterpointObj);
+			let counterpointStrings = counterpointToVexflowStrings(counterpointObj);
 
-		const VF = Vex.Flow;
+			const VF = Vex.Flow;
 
-		// Create an SVG renderer and attach it to the DIV element named 'vexFlowCounterpoint'.
-		const vf = new VF.Factory({renderer: {elementId: 'vexFlowCounterpoint'}});
-		const score = vf.EasyScore();
-		const system = vf.System();
+			// Create an SVG renderer and attach it to the DIV element with specified id
+			const vf = new VF.Factory({renderer: {elementId: renderDivId}});
+			const score = vf.EasyScore();
+			const system = vf.System();
 
-		score.set({time: '16/4'});
-		system.addStave({
-			voices: [
-				score.voice(score.notes(counterpointStrings.highString, {stem: 'up'})),
-				score.voice(score.notes(counterpointStrings.lowString, {stem: 'down'}))
-			]
-		}).addClef('treble').addKeySignature('Eb');
+			score.set({time: '16/4'});
+			let temp = system.addStave({
+				voices: [
+					score.voice(score.notes(counterpointStrings.highString, {stem: 'up'})),
+					score.voice(score.notes(counterpointStrings.lowString, {stem: 'down'}))
+				]
+			}).addClef('treble')
+			if (showKeySignature) {
+				temp.addKeySignature('Eb');
+			}
 
-		vf.draw();
+			vf.draw();
+		};
 	};
+	const counterpointNumToNoteStr = {
+		0: 'C2',
+		1: 'D3',
+		2: 'E3',
+		3: 'F3',
+		4: 'G3',
+		5: 'A3',
+		6: 'B3',
+		6.5: 'Bn3',
+		7: 'C4',
+		8: 'D4',
+		9: 'E4',
+		10: 'F4',
+		11: 'G4',
+		12: 'A4',
+		13: 'B4',
+		13.5: 'Bn4',
+		14: 'C5',
+		15: 'D5',
+		16: 'E5',
+		17: 'F5',
+		18: 'G5',
+		19: 'A5',
+		20: 'B5',
+		20.5: 'Bn5',
+		21: 'C6'
+	};
+	window.app.ui.renderCounterpoint = renderCounterpointsHelper(counterpointNumToNoteStr, 'vexFlowCounterpoint');
+	const chromaticCounterpointBridgeNumToNoteStr = {
+		0: 'Cn2',
+		1: 'C#3',
+		2: 'Dn3',
+		3: 'D#3',
+		4: 'En3',
+		5: 'Fn3',
+		6: 'F#3',
+		7: 'Gn3',
+		8: 'G#3',
+		9: 'An3',
+		10: 'A#3',
+		11: 'Bn3',
+		12: 'Cn4',
+		13: 'C#4',
+		14: 'Dn4',
+		15: 'D#4',
+		16: 'En4',
+		17: 'Fn4',
+		18: 'F#4',
+		19: 'Gn4',
+		20: 'G#4',
+		21: 'An4',
+		22: 'A#4',
+		23: 'Bn4',
+		24: 'Cn5',
+		25: 'C#5',
+		26: 'Dn5',
+		27: 'D#5',
+		28: 'En5',
+		29: 'Fn5',
+		30: 'F#5',
+		31: 'Gn5',
+		32: 'G#5',
+		33: 'An5',
+		34: 'A#5',
+		35: 'Bn5',
+		36: 'Cn6'
+	};
+	window.app.ui.renderChromaticCounterpointBridge = renderCounterpointsHelper(chromaticCounterpointBridgeNumToNoteStr, 'vexFlowChromaticCounterpointBridge', false);
 })();
 
 // Temporary code for creating premade SVGs
@@ -222,7 +271,7 @@ window.app.ui = {};
 	const vf = new VF.Factory({renderer: {elementId: 'vexFlowTemp'}});
 	const score = vf.EasyScore();
 	const makeSystem = (width) => {
-		const system = vf.System({ x: 0, y: 0, width: width, spaceBetweenStaves: 0 });
+		const system = vf.System({x: 0, y: 0, width: width});
 		return system;
 	};
 	const concat = (a, b) => { return a.concat(b); };

@@ -381,13 +381,14 @@
 		const hitCounterpoint = {lowArray: counterpoint.lowArray.slice(), highArray: []};
 		// make the hit counterpoint intervals sound a bit different
 		const diffToHighOffset = {
-			2: 2,
-			4: 4,
-			5: 6,
-			7: 8,
-			9: 10
+			2: 3,
+			4: 5,
+			5: 7,
+			5.5: 10,
+			7: 12,
+			9: 15
 		};
-		for (let i = 0; i < counterpoint.highArray.length - 2; i++) {
+		for (let i = 0; i < counterpoint.highArray.length; i++) {
 			const diff = counterpoint.highArray[i] - counterpoint.lowArray[i];
 			let offset = diffToHighOffset[diff];
 			if (offset === undefined) {
@@ -396,8 +397,14 @@
 			}
 			hitCounterpoint.highArray[i] = hitCounterpoint.lowArray[i] + offset;
 		}
-		hitCounterpoint.highArray[counterpoint.lowArray.length - 2] = hitCounterpoint.lowArray[counterpoint.lowArray.length - 2] + 4;
-		hitCounterpoint.highArray[counterpoint.lowArray.length - 1] = hitCounterpoint.lowArray[counterpoint.lowArray.length - 1] + 7;
+		hitCounterpoint.lowArray = hitCounterpoint.lowArray.map((value) => {
+			return value + 5; 
+		});
+		hitCounterpoint.highArray = hitCounterpoint.highArray.map((value) => {
+			const ret = value + 5;
+			// It's possible it could go out of range, so clamp to the highest value
+			return Math.min(36, ret);
+		});
 		return hitCounterpoint;
 	}
 
