@@ -177,9 +177,9 @@ window.app.ui = {};
 			const VF = Vex.Flow;
 
 			// Create an SVG renderer and attach it to the DIV element with specified id
-			const vf = new VF.Factory({renderer: {elementId: renderDivId}});
+			const vf = new VF.Factory({renderer: {elementId: renderDivId, width: 575, height: 200}});
 			const score = vf.EasyScore();
-			const system = vf.System();
+			const system = vf.System({width: 550});
 
 			score.set({time: '16/4'});
 			let temp = system.addStave({
@@ -294,7 +294,7 @@ window.app.ui = {};
 		36: 'Cn6'
 	};
 	// Creates window.app.ui.renderChromaticCounterpointBrudge and window.app.ui.setHighlightChromaticCounterpointBridge functions
-	generateCounterpointUIFunctions('ChromaticCounterpointBridge', chromaticCounterpointBridgeNumToNoteStr, 'vexFlowChromaticCounterpointBridge', 0.333, true);
+	generateCounterpointUIFunctions('ChromaticCounterpointBridge', chromaticCounterpointBridgeNumToNoteStr, 'vexFlowChromaticCounterpointBridge', 0.333, false);
 })();
 
 // Temporary code for creating premade SVGs
