@@ -65,6 +65,10 @@ table, th, td {
 	display: none;
 }
 
+.redFill {
+	fill: red;
+}
+
 @media all and (min-width: 1660px) {
 	.keySignature, #breakdownNotation {
 		height: 200px;
