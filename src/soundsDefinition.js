@@ -100,66 +100,79 @@
 			},
 			// HIGHS
 			highOneUpOne: {
+				name: 'highOneUpOne', // name used in UI
 				url: 'full_high_one_up_one.wav',
 				bars: 1,
 				groups: ['highs', 'breakdownWithHighsOneBar']
 			},
 			highTwoUpOne: {
+				name: 'highTwoUpOne',
 				url: 'full_high_two_up_one.wav',
 				bars: 1,
 				groups: ['highs', 'breakdownWithHighsOneBar']
 			},
 			highOneUpThree: {
+				name: 'highOneUpThree',
 				url: 'full_high_one_up_three.wav',
 				bars: 2,
 				groups: ['highs']
 			},
 			highTwoUpThree: {
+				name: 'highTwoUpThree',
 				url: 'full_high_two_up_three.wav',
 				bars: 2,
 				groups: ['highs']
 			},
 			highOneUpThreeDownThree: {
+				name: 'highOneUpThreeDownThree',
 				url: 'full_high_one_up_three_down_three.wav',
 				bars: 2,
 				groups: ['highs']
 			},
 			highTwoUpThreeDownThree: {
+				name: 'highTwoUpThreeDownThree',
 				url: 'full_high_two_up_three_down_three.wav',
 				bars: 2,
 				groups: ['highs']
 			},
 			highOneUpThreeFour: {
+				name: 'highOneUpThreeFour',
 				url: 'full_high_one_up_three_four.wav',
 				bars: 2,
 				groups: ['highs']
 			},
 			highTwoUpThreeFour: {
+				name: 'highTwoUpThreeFour',
 				url: 'full_high_two_up_three_four.wav',
 				bars: 2,
 				groups: ['highs']
 			},
 			highOneUpThreeUpOne: {
+				name: 'highOneUpThreeUpOne',
 				url: 'full_high_one_up_three_up_one.wav',
 				bars: 2,
 				groups: ['highs']
 			},
 			highTwoUpThreeUpOne: {
+				name: 'highTwoUpThreeUpOne',
 				url: 'full_high_two_up_three_up_one.wav',
 				bars: 2,
 				groups: ['highs']
 			},
 			highOne: {
+				name: 'highOne',
 				url: 'full_guitar_high_one.wav',
 				bars: 1,
 				groups: ['highs', 'breakdownWithHighsOneBar']
 			},
 			highTwo: {
+				name: 'highTwo',
 				url: 'full_guitar_high_two.wav',
 				bars: 1,
 				groups: ['highs', 'breakdownWithHighsOneBar']
 			},
 			squeal: {
+				name: 'squeal',
 				url: 'full_guitar_squeal.wav',
 				bars: 2
 			},

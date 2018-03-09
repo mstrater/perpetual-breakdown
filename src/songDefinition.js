@@ -145,21 +145,24 @@
 					},
 					guitar: function(barNumber) {
 						// If we're at the last bar pick a one bar sample to make sure it fits
+						let ret;
 						if (barNumber === 31) {
-							return util.randArrayEntry(songDef.soundGroups.breakdownWithHighsOneBar);
+							ret = util.randArrayEntry(songDef.soundGroups.breakdownWithHighsOneBar);
 						} else if (barNumber % 8 === 0) {
 							// Always have a strong downbeat every 8
-							return util.randArrayEntry(songDef.soundGroups.breakdownDownbeats);
+							ret = util.randArrayEntry(songDef.soundGroups.breakdownDownbeats);
 						} else {
 							// Allows extras
 							if (barNumber % 4 === 2 && Math.random() < 0.25) {
-								return songDef.sounds.squeal;
+								ret = songDef.sounds.squeal;
 							} else if (Math.random() < 0.5) {
-								return util.randArrayEntry(songDef.soundGroups.highs);
+								ret = util.randArrayEntry(songDef.soundGroups.highs);
 							} else {
-								return util.randArrayEntry(songDef.soundGroups.breakdown);
+								ret = util.randArrayEntry(songDef.soundGroups.breakdown);
 							}
 						}
+						window.app.ui.setAugmentedBreakdownBarImg(ret);
+						return ret;
 					}
 				}
 			},
