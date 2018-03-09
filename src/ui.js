@@ -147,8 +147,10 @@ window.app.ui = {};
 // AND
 // Chromatic Counterpoint Bridge UI code
 (() => {
-	const renderCounterpointsHelper = (numToNoteObj, renderDivId, idModifier, showKeySignature = true) => {
-		return (counterpointObj) => {
+	const generateCounterpointUIFunctions = (sectionName, numToNoteObj, renderDivId, noteLengthSeconds, showKeySignature = true) => {
+		// Create render function
+		window.app.ui['render' + sectionName] = (counterpointObj) => {
+			// Helper function that uses numToNoteObj to create note strings for vexflow
 			const counterpointToVexflowStrings = (counterpoint) => {
 				const counterpointNumToNoteStr = numToNoteObj;
 				let lowString = '';
@@ -161,8 +163,8 @@ window.app.ui = {};
 						lowString += '/q';
 						highString += '/q';
 					}
-					lowString += '[id="note' + idModifier + 'Low' + i + '"]';
-					highString += '[id="note' + idModifier + 'High'+ i + '"]';
+					lowString += '[id="note' + sectionName + 'Low' + i + '"]';
+					highString += '[id="note' + sectionName + 'High'+ i + '"]';
 					if (i != counterpoint.lowArray.length - 1) {
 						lowString += ', ';
 						highString += ', ';
@@ -198,6 +200,29 @@ window.app.ui = {};
 				path.removeAttribute('fill');
 			});
 		};
+
+		// Create highlight function
+		window.app.ui['setHighlight' + sectionName] = (noteNum, highlightOrNot = true) => {
+			let highNote = document.querySelector('#vf-note' + sectionName + 'High' + noteNum);
+			let lowNote = document.querySelector('#vf-note' + sectionName + 'Low' + noteNum);
+			// See 'scheduleAheadTime' in main.js
+			window.setTimeout(() => {
+				if (highlightOrNot) {
+					highNote.classList.add('redFill');
+					lowNote.classList.add('redFill');
+				} else {
+					highNote.classList.remove('redFill');
+					lowNote.classList.remove('redFill');
+				}
+
+			}, 0.2 * 1000);
+			if (highlightOrNot) {
+				// schedule de-highlighting note after noteLengthSeconds
+				window.setTimeout(() => {
+					window.app.ui['setHighlight' + sectionName](noteNum, false);
+				}, noteLengthSeconds * 1000);
+			}
+		};
 	};
 	const counterpointNumToNoteStr = {
 		0: 'C2',
@@ -226,29 +251,8 @@ window.app.ui = {};
 		20.5: 'Bn5',
 		21: 'C6'
 	};
-	const counterpointId = 'CP';
-	window.app.ui.renderCounterpoint = renderCounterpointsHelper(counterpointNumToNoteStr, 'vexFlowCounterpoint', counterpointId);
-	window.app.ui.setHighlightCounterpoint = (highlightOrNot, noteNum) => {
-		let highNote = document.querySelector('#vf-note' + counterpointId + 'High' + noteNum);
-		let lowNote = document.querySelector('#vf-note' + counterpointId + 'Low' + noteNum);
-		// See 'scheduleAheadTime' in main.js
-		window.setTimeout(() => {
-			if (highlightOrNot) {
-				highNote.classList.add('redFill');
-				lowNote.classList.add('redFill');
-			} else {
-				highNote.classList.remove('redFill');
-				lowNote.classList.remove('redFill');
-			}
-
-		}, 0.2 * 1000);
-		if (noteNum === 15 && highlightOrNot) {
-			// schedule de-highlighting the last note
-			window.setTimeout(() => {
-				window.app.ui.setHighlightCounterpoint(false, 15);
-			}, 1.333 * 1000);
-		}
-	};
+	// Creates window.app.ui.renderCounterpoint and window.app.ui.setHighlightCounterpoint functions
+	generateCounterpointUIFunctions('Counterpoint', counterpointNumToNoteStr, 'vexFlowCounterpoint', 1.333, true);
 
 	const chromaticCounterpointBridgeNumToNoteStr = {
 		0: 'Cn2',
@@ -289,7 +293,8 @@ window.app.ui = {};
 		35: 'Bn5',
 		36: 'Cn6'
 	};
-	window.app.ui.renderChromaticCounterpointBridge = renderCounterpointsHelper(chromaticCounterpointBridgeNumToNoteStr, 'vexFlowChromaticCounterpointBridge', 'B', false);
+	// Creates window.app.ui.renderChromaticCounterpointBrudge and window.app.ui.setHighlightChromaticCounterpointBridge functions
+	generateCounterpointUIFunctions('ChromaticCounterpointBridge', chromaticCounterpointBridgeNumToNoteStr, 'vexFlowChromaticCounterpointBridge', 0.333, true);
 })();
 
 // Temporary code for creating premade SVGs

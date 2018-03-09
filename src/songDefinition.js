@@ -170,9 +170,7 @@
 						const noteNum = barNumber/4;
 						const note = counterpoint.lowArray[barNumber / 4];
 						// highlight the current UI note;
-						window.app.ui.setHighlightCounterpoint(true, noteNum);
-						// de-highlight the previous UI note;
-						window.app.ui.setHighlightCounterpoint(false, (noteNum + 15) % 16);
+						window.app.ui.setHighlightCounterpoint(noteNum);
 						return songDef.sounds['tremeloL' + note];
 					},
 					rightGuitar: function(barNumber) {
@@ -210,6 +208,8 @@
 				tracks: {
 					leftGuitar: function(barNumber) {
 						const note = hitCounterpoint.lowArray[barNumber];
+						// highlight the current UI note;
+						window.app.ui.setHighlightChromaticCounterpointBridge(barNumber);
 						return songDef.sounds['hitL' + note];
 					},
 					rightGuitar: function(barNumber) {
