@@ -9,14 +9,22 @@
 	<button id="playPause">Play / Pause</button>
 	<div id="container">
 		<div id="overview">
-			<h1>Perpetual Breakdown</h1>
-			<div class="flexContainer">
+			<div class="horizontalCenter">
+				<h1>Perpetual Breakdown</h1>
+			</div>
+			<div class="horizontalCenter">
 				<table id="stochasticMatrixTable"></table>
 			</div>
 		</div>
+		<!-- make sure the section id mathes the section name-->
 		<div id="breakdown">
-			<h2>Breakdown</h2>
-			<div class="flexContainer">
+			<div class="verticalCenter">
+				<div class="playingIcon hide">
+					<img src="assets/recording.svg">
+				</div>
+				<h2>Breakdown</h2>
+			</div>
+			<div class="horizontalCenter">
 				<div class="notationContainer">
 					<div class="keySignature"></div>
 					<div class="breakdownNotation"></div>
@@ -24,8 +32,13 @@
 			</div>
 		</div>
 		<div id="augmentedBreakdown">
-			<h2>Augmented Breakdown</h2>
-			<div class="flexContainer">
+			<div class="verticalCenter">
+				<div class="playingIcon hide">
+					<img src="assets/recording.svg">
+				</div>
+				<h2>Augmented Breakdown</h2>
+			</div>
+			<div class="horizontalCenter">
 				<div class="notationContainer">
 					<div class="keySignature"></div>
 					<div class="breakdownNotation"></div>
@@ -33,21 +46,31 @@
 			</div>
 		</div>
 		<div id="counterpoint">
-			<h2>Counterpoint</h2>
-			<div class="flexContainer">
+			<div class="verticalCenter">
+				<div class="playingIcon hide">
+					<img src="assets/recording.svg">
+				</div>
+				<h2>Counterpoint</h2>
+			</div>
+			<div class="horizontalCenter">
 				<div id="vexFlowCounterpoint"></div>
 			</div>
 		</div>
 		<div id="chromaticCounterpointBridge">
-			<h2>Chromatic Counterpoint Bridge</h2>
-			<div class="flexContainer">
+			<div class="verticalCenter">
+				<div class="playingIcon hide">
+					<img src="assets/recording.svg">
+				</div>
+				<h2>Chromatic Counterpoint Bridge</h2>
+			</div>
+			<div class="horizontalCenter">
 				<div id="vexFlowChromaticCounterpointBridge"></div>
 			</div>
 		</div>
 	</div>
 	<div id="temporary">
 		<h2>Temporary</h2>
-		<div class="flexContainer">
+		<div class="horizontalCenter">
 			<div id="vexFlowTemp"></div>
 		</div>
 	</div>

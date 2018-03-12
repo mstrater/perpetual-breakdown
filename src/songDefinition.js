@@ -9,33 +9,33 @@
 	window.app.ui.renderChromaticCounterpointBridge(hitCounterpoint);
 
 	// Holds the chance to move from one section to the next
-	// For example sectionTransitionMatrix.crashBreakdown.openHatBreakdown represents the chance to move
-	// from crashBreakdown to openHatBreakdown. Each section object should contain an entry for each section
+	// For example sectionTransitionMatrix.breakdown.augmentedBreakdown represents the chance to move
+	// from breakdown to augmentedBreakdown. Each section object should contain an entry for each section
 	// and the total probability should equal 1.0
 	const sectionTransitionMatrix = {
-		crashBreakdown: {
-			crashBreakdown: 0.05,
-			openHatBreakdown: 0.5,
-			tremeloCounterpointSection: 0.25,
-			hitBridgeSection: 0.2
+		breakdown: {
+			breakdown: 0.05,
+			augmentedBreakdown: 0.5,
+			counterpoint: 0.25,
+			chromaticCounterpointBridge: 0.2
 		},
-		openHatBreakdown: {
-			crashBreakdown: 0.15,
-			openHatBreakdown: 0.05,
-			tremeloCounterpointSection: 0.5,
-			hitBridgeSection: 0.3
+		augmentedBreakdown: {
+			breakdown: 0.15,
+			augmentedBreakdown: 0.05,
+			counterpoint: 0.5,
+			chromaticCounterpointBridge: 0.3
 		},
-		tremeloCounterpointSection: {
-			crashBreakdown: 0.35,
-			openHatBreakdown: 0.35,
-			tremeloCounterpointSection: 0.1,
-			hitBridgeSection: 0.2
+		counterpoint: {
+			breakdown: 0.35,
+			augmentedBreakdown: 0.35,
+			counterpoint: 0.1,
+			chromaticCounterpointBridge: 0.2
 		},
-		hitBridgeSection: {
-			crashBreakdown: 0.3,
-			openHatBreakdown: 0.3,
-			tremeloCounterpointSection: 0.3,
-			hitBridgeSection: 0.1
+		chromaticCounterpointBridge: {
+			breakdown: 0.3,
+			augmentedBreakdown: 0.3,
+			counterpoint: 0.3,
+			chromaticCounterpointBridge: 0.1
 		}
 	};
 	window.app.ui.renderStochasticMatrix(sectionTransitionMatrix);
@@ -69,12 +69,12 @@
 			}
 		}
 		console.error('Couldn\'t select a section properly!');
-		return 'crashBreakdown';
+		return 'breakdown';
 	};
 
 	const simulateSectionTransitions = function(numTransitions) {
-		let result = 'crashBreakdown';
-		let currentSection = 'crashBreakdown';
+		let result = 'breakdown';
+		let currentSection = 'breakdown';
 		for (let i = 0; i < numTransitions; i++) {
 			currentSection = stochasticSectionSelector(currentSection);
 			result += '\n' + currentSection;
@@ -98,7 +98,7 @@
 		sounds: window.app.soundsDefinition.sounds,
 		soundGroups: window.app.soundsDefinition.soundGroups,
 		sections: {
-			crashBreakdown: {
+			breakdown: {
 				bars: 32,
 				tracks: {
 					drums: function(barNumber) {
@@ -130,7 +130,7 @@
 					}
 				}
 			},
-			openHatBreakdown: {
+			augmentedBreakdown: {
 				bars: 32,
 				tracks: {
 					drums: function(barNumber) {
@@ -166,7 +166,7 @@
 					}
 				}
 			},
-			tremeloCounterpointSection: {
+			counterpoint: {
 				bars: 64,
 				tracks: {
 					leftGuitar: function(barNumber) {
@@ -206,7 +206,7 @@
 					}
 				}
 			},
-			hitBridgeSection: {
+			chromaticCounterpointBridge: {
 				bars: 16,
 				tracks: {
 					leftGuitar: function(barNumber) {
@@ -226,11 +226,15 @@
 			}
 		},
 		selectSection: function(barNumber, lastSection) {
+			let nextSectionObj;
 			if (!lastSection) {
-				return songDef.sections.crashBreakdown;
+				// first section
+				nextSectionObj = songDef.sections.breakdown;
 			} else {
-				return songDef.sections[stochasticSectionSelector(lastSection.name)];
+				nextSectionObj = songDef.sections[stochasticSectionSelector(lastSection.name)];
 			}
+			window.app.ui.highlightSection(nextSectionObj.name);
+			return nextSectionObj;
 		}
 	};
 

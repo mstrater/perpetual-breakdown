@@ -2,15 +2,17 @@
 window.app.ui = {};
 
 // Stochastic matrix UI code
+// AND
+// Section highlighting code
 (() => {
 	// Create the UI for the section stochastic matrix
 	window.app.ui.renderStochasticMatrix = (matrix) => {
-		const sections = ['crashBreakdown', 'openHatBreakdown', 'tremeloCounterpointSection', 'hitBridgeSection'];
+		const sections = ['breakdown', 'augmentedBreakdown', 'counterpoint', 'chromaticCounterpointBridge'];
 		const readableSectionNames = {
-			crashBreakdown: 'Breakdown',
-			openHatBreakdown: 'Augmented Breakdown',
-			tremeloCounterpointSection: 'Counterpoint',
-			hitBridgeSection: 'Chromatic Counterpoint Bridge'
+			breakdown: 'Breakdown',
+			augmentedBreakdown: 'Augmented Breakdown',
+			counterpoint: 'Counterpoint',
+			chromaticCounterpointBridge: 'Chromatic Counterpoint Bridge'
 		}
 
 		const numSections = 4;
@@ -61,6 +63,16 @@ window.app.ui = {};
 			table.appendChild(tableRow);
 		}
 	};
+
+	let lastSectionIcon = null;
+	window.app.ui.highlightSection = (sectionName) => {
+		if (lastSectionIcon) {
+			lastSectionIcon.classList.add('hide');
+		}
+		lastSectionIcon = document.querySelector('#' + sectionName + ' .playingIcon');
+		lastSectionIcon.classList.remove('hide');
+		document.querySelector('#' + sectionName).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+	}
 })();
 
 // Breakdown UI code
@@ -112,7 +124,7 @@ window.app.ui = {};
 			keySignatureImg.src = 'src/breakdownSVGs/keySignature.svg';
 			keySignatureImgDiv.appendChild(keySignatureImg);
 			keySignatureDiv.appendChild(keySignatureImgDiv);
-		}
+		};
 		// End Initialization code
 
 		window.app.ui['set' + sectionName + 'BarImg'] = (soundObj) => {
@@ -131,7 +143,7 @@ window.app.ui = {};
 			}
 
 			currentBreakdownBar = (currentBreakdownBar + soundObj.bars)%numDisplayBreakdownBars;
-		}
+		};
 	};
 
 	const breakdownNameToImgSrc = {
