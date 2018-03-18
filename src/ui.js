@@ -7,13 +7,13 @@ window.app.ui = {};
 (() => {
 	// Create the UI for the section stochastic matrix
 	window.app.ui.renderStochasticMatrix = (matrix) => {
-		const sections = ['breakdown', 'augmentedBreakdown', 'counterpoint', 'chromaticCounterpointBridge'];
+		const sections = Object.keys(matrix);
 		const readableSectionNames = {
 			breakdown: 'Breakdown',
 			augmentedBreakdown: 'Augmented Breakdown',
 			counterpoint: 'Counterpoint',
 			chromaticCounterpointBridge: 'Chromatic Counterpoint Bridge'
-		}
+		};
 
 		const numSections = 4;
 		const table = document.querySelector('#stochasticMatrixTable');
@@ -22,6 +22,7 @@ window.app.ui = {};
 		let blankCell = document.createElement('td');
 		blankCell.setAttribute('colspan', 2);
 		blankCell.setAttribute('rowspan', 2);
+		blankCell.classList.add('topLeftNoBorder');
 		topLabelRow.appendChild(blankCell);
 		let topLabelCell = document.createElement('th');
 		topLabelCell.innerHTML = 'To Section';
@@ -34,6 +35,7 @@ window.app.ui = {};
 		for (let i = 0; i < numSections; i++) {
 			let tableCell = document.createElement('th');
 			tableCell.innerHTML = readableSectionNames[sections[i]];
+			tableCell.classList.add('normalWeight');
 			tableRow.appendChild(tableCell);
 		}
 		table.appendChild(tableRow);
@@ -44,6 +46,7 @@ window.app.ui = {};
 			if (i === 0) {
 				let leftLabelCell = document.createElement('th');
 				leftLabelCell.innerHTML = 'From Section';
+				leftLabelCell.classList.add('sideways');
 				leftLabelCell.setAttribute('rowspan', numSections);
 				tableRow.appendChild(leftLabelCell);
 			}
@@ -52,6 +55,7 @@ window.app.ui = {};
 				let tableCell;
 				if (j === 0) {
 					tableCell = document.createElement('th');
+					tableCell.classList.add('normalWeight');
 					tableCell.innerHTML = readableSectionNames[fromSection];
 				} else {
 					tableCell = document.createElement('td');
@@ -65,13 +69,16 @@ window.app.ui = {};
 	};
 
 	let lastSectionIcon = null;
+	let scrollToSectionInput = document.querySelector('#scrollToSection');
 	window.app.ui.highlightSection = (sectionName) => {
 		if (lastSectionIcon) {
 			lastSectionIcon.classList.add('hide');
 		}
 		lastSectionIcon = document.querySelector('#' + sectionName + ' .playingIcon');
 		lastSectionIcon.classList.remove('hide');
-		document.querySelector('#' + sectionName).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+		if (scrollToSectionInput.checked) {
+			document.querySelector('#' + sectionName).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+		}
 	}
 })();
 

@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>Perpetual Breakdown</title>
+	<link href="https://fonts.googleapis.com/css?family=Nova+Round|Ubuntu" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<button id="playPause">Play / Pause</button>
 	<div id="container">
 		<div id="overview">
 			<div class="horizontalCenter">
@@ -67,11 +67,20 @@
 				<div id="vexFlowChromaticCounterpointBridge"></div>
 			</div>
 		</div>
+		<div id="temporary">
+			<h2>Temporary</h2>
+			<div class="horizontalCenter">
+				<div id="vexFlowTemp"></div>
+			</div>
+		</div>
 	</div>
-	<div id="temporary">
-		<h2>Temporary</h2>
-		<div class="horizontalCenter">
-			<div id="vexFlowTemp"></div>
+	<div id="controls">
+		<div class="verticalCenter">
+			<button id="playPause">Play / Pause</button>
+			<div class="verticalCenter">
+				<input type="checkbox" id="scrollToSection">
+				<label for="automaticallyScrollToSection">Automatically scroll to playing section</label>
+			</div>
 		</div>
 	</div>
 	<script>
