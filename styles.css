@@ -43,6 +43,11 @@ h2 {
 	align-items: center;
 }
 
+p {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
 table {
 	border-collapse: collapse;
 	text-align: center;

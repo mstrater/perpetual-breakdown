@@ -12,6 +12,15 @@
 			<div class="horizontalCenter">
 				<h1>Perpetual Breakdown</h1>
 			</div>
+			<p>
+				Perpetual Breakdown is a procedurally generated metal song created by <a href="https://www.maxstrater.com" target="_blank">Max Strater</a> and <a href="https://www.kylepaulsen.com" target="_blank">Kyle Paulsen</a>. Click the play button at the bottom of the page at any time to start listening.
+			</p>
+			<p class="sectionsDescription">
+				The song structure is composed of <span class="sectionsNumSections"></span> different sections: <span class="sectionsSectionsString"></span>. Each section is detailed below and each section name will be marked with an icon while it is playing. You can also automatically scroll to the currently playing section using the checkbox next to the play button.
+			</p>
+			<p class="sectionsDescription">
+				The first section played is always <i><span class="sectionsFirstSection"></span></i> and then we decide which section to play next using a <a href=https://en.wikipedia.org/wiki/Markov_chain target="_blank">Markov chain</a>. All this really means is that each section has some specific probability to transition to each other section. You can visualize all the different probabilities using a <a href="https://en.wikipedia.org/wiki/Stochastic_matrix" target="_blank">stochastic matrix</a> (also known as a <i>transition matrix</i> or a <i>Markov matrix</i>). The stochastic matrix for the song's sections is shown below. For example, the probability to transition from <i><span class="sectionsFirstSection"></span></i> to <i><span class="sectionsSecondSection"></span></i> is <span class="sectionsProbability"></span>.
+			</p>
 			<div class="horizontalCenter">
 				<table id="stochasticMatrixTable"></table>
 			</div>

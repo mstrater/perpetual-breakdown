@@ -15,7 +15,7 @@ window.app.ui = {};
 			chromaticCounterpointBridge: 'Chromatic Counterpoint Bridge'
 		};
 
-		const numSections = 4;
+		const numSections = sections.length;
 		const table = document.querySelector('#stochasticMatrixTable');
 
 		let topLabelRow = document.createElement('tr');
@@ -66,6 +66,27 @@ window.app.ui = {};
 			}
 			table.appendChild(tableRow);
 		}
+
+		// Also add the section description text
+		sectionNamesArr = Object.values(readableSectionNames);
+		let sectionsString = '';
+		for (let i = 0; i < sectionNamesArr.length; i++) {
+			sectionsString += '<i>' + sectionNamesArr[i] + '</i>';
+			if (i !== sectionNamesArr.length - 1) {
+				sectionsString += ', ';
+			}
+			if (i === sectionNamesArr.length - 2) {
+				sectionsString += 'and ';
+			}
+		}
+		const setAllText = (selectorString, textString) => {
+			document.querySelectorAll(selectorString).forEach((domElement) => { domElement.innerHTML = textString; });
+		};
+		setAllText('.sectionsDescription .sectionsNumSections', numSections);
+		setAllText('.sectionsDescription .sectionsSectionsString', sectionsString);
+		setAllText('.sectionsDescription .sectionsFirstSection', readableSectionNames[sections[0]]);
+		setAllText('.sectionsDescription .sectionsSecondSection', readableSectionNames[sections[1]]);
+		setAllText('.sectionsDescription .sectionsProbability', matrix[sections[0]][sections[1]]);
 	};
 
 	let lastSectionIcon = null;

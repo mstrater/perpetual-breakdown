@@ -229,7 +229,7 @@
 			let nextSectionObj;
 			if (!lastSection) {
 				// first section
-				nextSectionObj = songDef.sections.breakdown;
+				nextSectionObj = songDef.sections[Object.keys(songDef.sections)[0]];
 			} else {
 				nextSectionObj = songDef.sections[stochasticSectionSelector(lastSection.name)];
 			}
