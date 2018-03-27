@@ -3,7 +3,9 @@ window.app.ui = {};
 
 // Stochastic matrix UI code
 // AND
-// Section highlighting code
+// Sections description code
+// AND
+// Section highlighting code/Scroll to section code
 (() => {
 	// Create the UI for the section stochastic matrix
 	window.app.ui.renderStochasticMatrix = (matrix) => {
@@ -89,6 +91,7 @@ window.app.ui = {};
 		setAllText('.sectionsDescription .sectionsProbability', matrix[sections[0]][sections[1]]);
 	};
 
+	// Section highlighting code and scroll to section code
 	let lastSectionIcon = null;
 	let scrollToSectionInput = document.querySelector('#scrollToSection');
 	window.app.ui.highlightSection = (sectionName) => {
@@ -98,7 +101,7 @@ window.app.ui = {};
 		lastSectionIcon = document.querySelector('#' + sectionName + ' .playingIcon');
 		lastSectionIcon.classList.remove('hide');
 		if (scrollToSectionInput.checked) {
-			document.querySelector('#' + sectionName).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+			document.querySelector('#' + sectionName).scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 		}
 	}
 })();
@@ -109,6 +112,40 @@ window.app.ui = {};
 (() => {
 	const initializeAndGenerateBreakdownUIFunctions = (sectionName, soundNameToImgSrcObj, containerDivID) => {
 		// Initialization code
+
+		// Create component images
+		const keys = Object.keys(soundNameToImgSrcObj);
+		const values = Object.values(soundNameToImgSrcObj);
+		const container = document.querySelector('#' + containerDivID + ' .componentsContainer');
+		for (let i=0; i<keys.length; i++) {
+			let key = keys[i];
+			let path = soundNameToImgSrcObj[key];
+			let componentDiv = document.createElement('div');
+			componentDiv.classList.add('component');
+
+			let componentImg = document.createElement('img');
+			componentImg.src = path;
+			componentDiv.appendChild(componentImg);
+			if (key.substr(-1) === '1') {
+				//Group divided components together
+				let coreString = key.substr(0, key.length-1);
+				for (let j=i+1; j<keys.length; j++) {
+					let nextKey = keys[j];
+					let nextPath = soundNameToImgSrcObj[nextKey];
+					if (nextKey.substr(0, nextKey.length-1) === coreString) {
+						let nextComponentImg = document.createElement('img');
+						nextComponentImg.src = nextPath;
+						componentDiv.appendChild(nextComponentImg);
+						i++;
+					} else {
+						break;
+					}
+				}
+			}
+			container.appendChild(componentDiv);
+		}
+
+		// Create notation elements
 		const numDisplayBreakdownBars = 32;
 		let currentBreakdownBar = 0;
 		let breakdownImgArray = [];

@@ -74,6 +74,21 @@ th, td {
 	width: 100%;
 }
 
+.componentsContainer {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.component {
+	margin: 5px;
+	height: 80px;
+	border: 1px solid #999999;
+}
+.component img {
+	height: 100%;
+	float: left;
+}
+
 .breakdown .keySignature {
 	overflow: hidden;
 	float: left;
