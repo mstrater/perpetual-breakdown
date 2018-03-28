@@ -123,6 +123,9 @@ window.app.ui = {};
 			let componentDiv = document.createElement('div');
 			componentDiv.classList.add('component');
 
+			let keySignatureImg = document.createElement('img');
+			keySignatureImg.src = 'src/breakdownSVGs/keySignature.svg';
+			componentDiv.appendChild(keySignatureImg);
 			let componentImg = document.createElement('img');
 			componentImg.src = path;
 			componentDiv.appendChild(componentImg);

@@ -19,7 +19,7 @@
 				The song structure is composed of <span class="sectionsNumSections"></span> different sections: <span class="sectionsSectionsString"></span>. Each section is detailed below and each section name will be marked with an icon while it is playing. You can also automatically scroll to the currently playing section using the checkbox next to the play button.
 			</p>
 			<p class="sectionsDescription">
-				The first section played is always <i><span class="sectionsFirstSection"></span></i> and then we decide which section to play next using a <a href=https://en.wikipedia.org/wiki/Markov_chain target="_blank">Markov chain</a>. All this really means is that each section has some specific probability to transition to each other section. You can visualize all the different probabilities using a <a href="https://en.wikipedia.org/wiki/Stochastic_matrix" target="_blank">stochastic matrix</a> (also known as a <i>transition matrix</i> or a <i>Markov matrix</i>). The stochastic matrix for the song's sections is shown below. For example, the probability to transition from <i><span class="sectionsFirstSection"></span></i> to <i><span class="sectionsSecondSection"></span></i> is <span class="sectionsProbability"></span>.
+				The first section played is always <i><span class="sectionsFirstSection"></span></i> and then which section is played next is decided using a <a href=https://en.wikipedia.org/wiki/Markov_chain target="_blank">Markov chain</a>. All this really means is that each section has some specific probability to transition to each other section. You can visualize all the different probabilities using a <a href="https://en.wikipedia.org/wiki/Stochastic_matrix" target="_blank">stochastic matrix</a> (also known as a <i>transition matrix</i> or a <i>Markov matrix</i>). The stochastic matrix for the song's sections is shown below. For example, the probability to transition from <i><span class="sectionsFirstSection"></span></i> to <i><span class="sectionsSecondSection"></span></i> is <span class="sectionsProbability"></span>.
 			</p>
 			<div class="horizontalCenter">
 				<table id="stochasticMatrixTable"></table>
@@ -77,6 +77,32 @@
 				</div>
 				<h2>Counterpoint</h2>
 			</div>
+			<p>
+				This section is created by randomly generating a 16 note line of <a href="https://en.wikipedia.org/wiki/Counterpoint#First_species" target="_blank">first species counterpoint</a>. This means creating two complementary melodies which are then played with tremolo picking on dual guitars. The bass follows the lower melody and the drums play varied blast beats and double bass drum beats. Please note that the rules for creating counterpoint can vary somewhat and the following is just one method. First, a simple melody called a <i>cantus firmus</i> is generated according to the following rules:
+			</p>
+			<ul>
+				<li>Each note has the same length</li>
+				<li>Must start on the root note</li>
+				<li>Must end with a step down to the root, that is end with second to root</li>
+				<li>The allowed melodic intervals (up or down) are a second (scale step), third, fourth, or fifth</li>
+				<li>If the melody jumps by a third, fourth, or fifth, it must immediately be followed by a second (a scale step) in the opposite direction of the jump</li>
+			</ul>
+			<p>
+				Once the <i>cantus firmus</i> is finished, a higher pitched 16 note melody line is generated to harmonize note for note against the <i>cantus firmus</i>. This second melody must follow these rules:
+			</p>
+			<ul>
+				<li>Each note has the same length</li>
+				<li>Must start on a harmonic interval of an octave above the <i>cantus firmus</i></li>
+				<li>Must end with a half step up to an octave above the <i>cantus firmus</i>, meaning the line ends with the harmonic intervals of a major sixth and an octave</li>
+				<li>The allowed harmonic intervals are a third, fifth (but not a diminished fifth), sixth, octave, or tenth</li>
+				<li>If the melody jumps in one direction by more than a second (a scale step) it must be followed <i>or preceded</i> by a scale step in the opposite direction</li>
+				<li>A note cannot be immediately followed by the same note</li>
+				<li>Cannot have more than one harmonic interval of a fifth or octave in a row</li>
+				<li>Cannot have more than three harmonic intervals of a third, sixth, or tenth in a row</li>
+				<li>Cannot have two melodic interval jumps of more than a second (a scale step) in the same direction</li>
+				<li>When approaching a harmonic octave or fifth, the melody must move in the opposite direction from the <i>cantus firmus</i></li>
+			</ul>
+			<p>Below is the counterpoint that has been generated this time. When this section is playing the current note will be highlighted in red</p>
 			<div class="horizontalCenter">
 				<div id="vexFlowCounterpoint"></div>
 			</div>
