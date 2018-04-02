@@ -227,7 +227,11 @@
 		},
 		selectSection: function(barNumber, lastSection) {
 			let nextSectionObj;
-			if (!lastSection) {
+			if (window.app.ui && window.app.ui.nextSection) {
+				nextSectionObj = songDef.sections[window.app.ui.nextSection];
+				window.app.ui.setPlayButtonHighlight(window.app.ui.nextSection, false);
+				window.app.ui.nextSection = null;
+			} else if (!lastSection) {
 				// first section
 				nextSectionObj = songDef.sections[Object.keys(songDef.sections)[0]];
 			} else {

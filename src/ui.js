@@ -106,6 +106,36 @@ window.app.ui = {};
 	}
 })();
 
+// Play Next Buttons Code
+(() => {
+	document.querySelectorAll('.playSectionNext').forEach((el) => {
+		let parentSection = el.closest('.section');
+		if (parentSection) {
+			el.addEventListener('click', (e) => {
+				window.app.ui.nextSection = parentSection.id;
+				// Clear other button highlighting
+				window.app.ui.clearPlayButtonHighlight();
+				window.app.ui.setPlayButtonHighlight(parentSection.id, true);
+			});
+		}
+	});
+	// Set highlighting on the "Play Next" buttons next to a section name
+	window.app.ui.setPlayButtonHighlight = (sectionName, highlight = true) => {
+		let classList = document.querySelector('#' + sectionName + ' .playSectionNext').classList;
+		if (highlight) {
+			classList.add('buttonHighlight');
+		} else {
+			classList.remove('buttonHighlight');
+		}
+	};
+	// Clear highlighting on all "Play Next" buttons
+	window.app.ui.clearPlayButtonHighlight = () => {
+		document.querySelectorAll('.playSectionNext').forEach((el) => {
+			el.classList.remove('buttonHighlight');
+		});
+	};
+})();
+
 // Breakdown UI code
 // AND
 // Augmented Breakdown UI code

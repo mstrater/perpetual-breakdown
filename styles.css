@@ -21,17 +21,36 @@ h1, h2 {
 	font-family: 'Nova Round', cursive;
 }
 h1 {
-	font-size: 3rem;
+	font-size: 60px;
+	margin: 30px;
 }
 h2 {
-	font-size: 2rem;
+	font-size: 40px;
+	margin: 20px;
 }
 
 .playingIcon {
 	margin: 10px;
+	width: 30px;
+}
+.playingIcon img {
+	width: 100%;
 }
 .hide {
 	visibility: hidden;
+}
+
+.playSectionNext {
+	margin-left: 10px;
+}
+.buttonStyle {
+	border-radius: 5px;
+	border: 1px solid #999999;
+	background-color: #fff;
+	outline: none;
+}
+.buttonHighlight {
+	border: 1px solid #c80000;
 }
 
 .horizontalCenter {
@@ -44,6 +63,7 @@ h2 {
 }
 
 p {
+	margin-top: 0;
 	margin-left: 20px;
 	margin-right: 20px;
 }
@@ -65,13 +85,6 @@ th, td {
 }
 .sideways {
 	transform: rotate(-90deg);
-}
-
-.playingIcon {
-	width: 30px;
-}
-.playingIcon img {
-	width: 100%;
 }
 
 .componentsContainer {
@@ -126,7 +139,7 @@ th, td {
 }
 
 .redFill {
-	fill: red;
+	fill: #c80000;
 }
 
 #controls {

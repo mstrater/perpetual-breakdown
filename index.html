@@ -19,19 +19,20 @@
 				The song structure is composed of <span class="sectionsNumSections"></span> different sections: <span class="sectionsSectionsString"></span>. Each section is detailed below and each section name will be marked with an icon while it is playing. You can also automatically scroll to the currently playing section using the checkbox next to the play button.
 			</p>
 			<p class="sectionsDescription">
-				The first section played is always <i><span class="sectionsFirstSection"></span></i> and then which section is played next is decided using a <a href=https://en.wikipedia.org/wiki/Markov_chain target="_blank">Markov chain</a>. All this really means is that each section has some specific probability to transition to each other section. You can visualize all the different probabilities using a <a href="https://en.wikipedia.org/wiki/Stochastic_matrix" target="_blank">stochastic matrix</a> (also known as a <i>transition matrix</i> or a <i>Markov matrix</i>). The stochastic matrix for the song's sections is shown below. For example, the probability to transition from <i><span class="sectionsFirstSection"></span></i> to <i><span class="sectionsSecondSection"></span></i> is <span class="sectionsProbability"></span>.
+				The first section played is always <i><span class="sectionsFirstSection"></span></i> and then which section is played next is decided using a <a href=https://en.wikipedia.org/wiki/Markov_chain target="_blank">Markov chain</a>. All this really means is that each section has some specific probability to transition to each other section. You can visualize all the different probabilities using a <a href="https://en.wikipedia.org/wiki/Stochastic_matrix" target="_blank">stochastic matrix</a> (also known as a <i>transition matrix</i> or a <i>Markov matrix</i>). The stochastic matrix for the song's sections is shown below. For example, the probability to transition from <i><span class="sectionsFirstSection"></span></i> to <i><span class="sectionsSecondSection"></span></i> is <span class="sectionsProbability"></span>. However, if you want to override the section order, each section has a button next to its name below that will force it to be the next played section.
 			</p>
 			<div class="horizontalCenter">
 				<table id="stochasticMatrixTable"></table>
 			</div>
 		</div>
 		<!-- make sure the section id mathes the section name-->
-		<div id="breakdown">
+		<div id="breakdown" class="section">
 			<div class="verticalCenter">
 				<div class="playingIcon hide">
 					<img src="assets/recording.svg">
 				</div>
 				<h2>Breakdown</h2>
+				<button class="playSectionNext buttonStyle">Play Next</button>
 			</div>
 			<p>
 				This section is composed of a semi-random rhythm played on guitar, bass, and drums. The rhythm is made up of smaller component patterns sequenced one after another such that they maintain a strong downbeat every 8 beats. The components used are the following:
@@ -48,12 +49,13 @@
 				</div>
 			</div>
 		</div>
-		<div id="augmentedBreakdown">
+		<div id="augmentedBreakdown" class="section">
 			<div class="verticalCenter">
 				<div class="playingIcon hide">
 					<img src="assets/recording.svg">
 				</div>
 				<h2>Augmented Breakdown</h2>
+				<button class="playSectionNext buttonStyle">Play Next</button>
 			</div>
 			<p>
 				This section is essentially the same as the <i>Breakdown</i> section, but with a few extra embellishments added to the samples. There are very dissonant minor second guitar stabs and high pitched guitar squeals added to the available sounds. The drums also ride the open hi-hat instead of crash symbols. The components used are the following:
@@ -70,12 +72,13 @@
 				</div>
 			</div>
 		</div>
-		<div id="counterpoint">
+		<div id="counterpoint" class="section">
 			<div class="verticalCenter">
 				<div class="playingIcon hide">
 					<img src="assets/recording.svg">
 				</div>
 				<h2>Counterpoint</h2>
+				<button class="playSectionNext buttonStyle">Play Next</button>
 			</div>
 			<p>
 				This section is created by randomly generating a 16 note line of <a href="https://en.wikipedia.org/wiki/Counterpoint#First_species" target="_blank">first species counterpoint</a>. This means creating two complementary melodies which are then played with tremolo picking on dual guitars. The bass follows the lower melody and the drums play varied blast beats and double bass drum beats. Please note that the rules for creating counterpoint can vary somewhat and the following is just one method. First, a simple melody called a <i>cantus firmus</i> is generated according to the following rules:
@@ -109,12 +112,13 @@
 				<div id="vexFlowCounterpoint"></div>
 			</div>
 		</div>
-		<div id="chromaticCounterpointBridge">
+		<div id="chromaticCounterpointBridge" class="section">
 			<div class="verticalCenter">
 				<div class="playingIcon hide">
 					<img src="assets/recording.svg">
 				</div>
 				<h2>Chromatic Counterpoint Bridge</h2>
+				<button class="playSectionNext buttonStyle">Play Next</button>
 			</div>
 			<p>
 				Once the 16 note counterpoint line is generated for the <i>Counterpoint</i> section, it is reinterpreted as a short sequence of chromatic hits played on guitar and bass to make this transitional bridge section.
@@ -138,7 +142,7 @@
 	</div>
 	<div id="controls">
 		<div class="verticalCenter">
-			<button id="playPause">Play / Pause</button>
+			<button id="playPause" class="buttonStyle">Play / Pause</button>
 			<div class="verticalCenter">
 				<input type="checkbox" id="scrollToSection">
 				<label for="automaticallyScrollToSection">Automatically scroll to playing section</label>
