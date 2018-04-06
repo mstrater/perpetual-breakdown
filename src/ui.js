@@ -136,6 +136,43 @@ window.app.ui = {};
 	};
 })();
 
+// Collapse Sections Code
+(() => {
+	document.querySelectorAll('.sectionHeader .collapseIcon').forEach((el) => {
+		let parentSection = el.closest('.section');
+		if (parentSection) {
+			el.addEventListener('click', (e) => {
+				let collapsible = parentSection.querySelectorAll('.collapsible');
+				if (!el.classList.contains('collapsed')) {
+					el.classList.add('collapsed');
+					// Set an explicit height so we can transition correctly
+					collapsible.forEach((elem) => {
+						elem.style.height = elem.scrollHeight + 'px';
+					});
+					// Allow for reflow
+					setTimeout(() => {
+						collapsible.forEach((elem) => {
+							elem.classList.add('noHeight');
+						});
+						// When done (after a little more than 0.25s)
+						// remove individual height
+						setTimeout(() => {
+							collapsible.forEach((elem) => {
+								elem.removeAttribute("style");
+							});
+						}, 300);
+					}, 0);
+				} else {
+					el.classList.remove('collapsed');
+					collapsible.forEach((elem) => {
+						elem.classList.remove('noHeight');
+					});
+				}
+			});
+		}
+	});
+})();
+
 // Breakdown UI code
 // AND
 // Augmented Breakdown UI code

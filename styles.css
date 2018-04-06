@@ -26,12 +26,19 @@ h1 {
 }
 h2 {
 	font-size: 40px;
-	margin: 20px;
+	margin: 10px;
 }
 
+.sectionHeader {
+	position: relative;
+	background-color: #dddddd;
+	border-bottom: 1px solid #999999;
+	border-top: 1px solid #999999;
+	margin: 20px 0;
+}
 .playingIcon {
-	margin: 10px;
 	width: 30px;
+	height: 30px;
 }
 .playingIcon img {
 	width: 100%;
@@ -39,9 +46,33 @@ h2 {
 .hide {
 	visibility: hidden;
 }
+.collapseIcon {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	right: 20px;
+	transition: transform 0.25s;
+	cursor: pointer;
+}
+.collapseIcon img {
+	width: 100%;
+}
+.collapsed {
+	transform: rotate(90deg);
+	transform-origin: 50% 50%;
+}
+.collapsible {
+	transition: height 0.25s;
+	overflow: hidden;
+}
+.noHeight {
+	/*!important is needed so we can override the element's
+	individual height and transition correctly*/
+	height: 0 !important;
+}
 
 .playSectionNext {
-	margin-left: 10px;
+	margin-left: 14px;
 }
 .buttonStyle {
 	border-radius: 5px;
@@ -73,7 +104,7 @@ table {
 	text-align: center;
 }
 th, td {
-	border: 1px solid black;
+	border: 1px solid #999999;
 	width: 50px;
 }
 .normalWeight {
